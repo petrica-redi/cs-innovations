@@ -1,248 +1,110 @@
-export type Area =
-  | "Platforme"
-  | "Inteligență artificială"
-  | "Chimie"
-  | "Social"
-  | "Sănătate";
+export type Area = "Social" | "Sănătate" | "Chimie" | "Platforme";
 
 export type Project = {
   name: string;
-  repo: string;
   area: Area;
   summary: string;
-  image: string;
+  credit?: string;
   href?: string;
-  draft?: boolean;
+  domain?: string;
+  screen?: string;
 };
 
-export const areas: Area[] = [
-  "Platforme",
-  "Inteligență artificială",
-  "Chimie",
-  "Social",
-  "Sănătate",
-];
+export const areas: Area[] = ["Social", "Sănătate", "Chimie", "Platforme"];
 
-const photos = {
-  ops: "/photos/ops-wall.jpg",
-  lab: "/photos/lab-screen.jpg",
-  desk: "/photos/community-desk.jpg",
-  racks: "/photos/racks.jpg",
-  ai: "/photos/ai-screen.jpg",
-  map: "/photos/map-wall.jpg",
-  clinic: "/photos/clinic-tablet.jpg",
-};
-
-export const projects: Project[] = [
+export const featured: Project[] = [
   {
     name: "SISCI",
-    repo: "sisci",
     area: "Social",
     summary:
-      "Management de caz pentru servicii comunitare integrate: dosar, evaluare, plan și roluri de supervizare. Demonstrație după documentul funcțional din 2022.",
-    image: photos.desk,
+      "Dosarul unui beneficiar de servicii comunitare integrate, de la prima evaluare până la închidere, cu planul de intervenție, vizitele de monitorizare și anexele tipărite. Versiunea publică folosește date de test.",
+    credit: "CS Innovations",
     href: "https://sisci.vercel.app",
-  },
-  {
-    name: "Scriva",
-    repo: "Scriva-e-consultation-2Aug",
-    area: "Inteligență artificială",
-    summary: "Consultație clinică asistată, pentru echipe medicale din Europa.",
-    image: photos.clinic,
-    href: "https://scriva.doctor",
-  },
-  {
-    name: "Sastipe",
-    repo: "REDI-Healthcare-2AUG",
-    area: "Sănătate",
-    summary: "Platformă de literație în sănătate pentru comunități rome.",
-    image: photos.desk,
-    href: "https://zuvo-three.vercel.app",
-  },
-  {
-    name: "ZUVO",
-    repo: "ZUVO",
-    area: "Sănătate",
-    summary: "Versiunea anterioară a aceleiași platforme de literație în sănătate.",
-    image: photos.clinic,
-    href: "https://zuvo-three.vercel.app",
+    domain: "sisci.vercel.app",
+    screen: "/screens/sisci-case.jpg",
   },
   {
     name: "REDI Health",
-    repo: "redi-health",
     area: "Sănătate",
-    summary: "Portalul ZUVO și consultația Scriva, puse pe același domeniu.",
-    image: photos.clinic,
+    summary:
+      "Educație pentru sănătate pentru familii, inclusiv din comunitățile rome, și un spațiu de lucru pentru mediatori și cadre medicale: cereri de ajutor, pacienți, programări și urmărirea cazurilor. Familiile pot fotografia o rețetă și primesc explicația în cuvinte simple. Aplicația este disponibilă în română, engleză, albaneză și italiană.",
+    credit: "Petrică Dulgheru",
+    href: "https://redi-health.vercel.app/ro/demo",
+    domain: "redi.healthcare",
+    screen: "/screens/redi-health-staff.jpg",
   },
   {
-    name: "Rural Digital Health",
-    repo: "rural-digital-health",
-    area: "Sănătate",
-    summary: "Telemedicină pentru comunități rurale din sud-estul Europei.",
-    image: photos.desk,
-    href: "https://rural-digital-health.vercel.app",
+    name: "REDI Business",
+    area: "Social",
+    summary:
+      "Platformă gratuită pentru antreprenorii romi din Balcani: cursuri, plan de afaceri, mentori și pregătirea pentru un credit. Interfața este disponibilă în română, engleză și romani.",
+    credit: "Petrică Dulgheru",
+    href: "https://redi.business",
+    domain: "redi.business",
+    screen: "/screens/redi-business.jpg",
   },
   {
-    name: "Optim Dental",
-    repo: "optim-dental-ai-stoma",
-    area: "Inteligență artificială",
-    summary: "Citirea unei radiografii dentare ca suport pentru planul de tratament.",
-    image: photos.ai,
-    href: "https://optim-dental-ai-stoma.vercel.app",
-  },
-  {
-    name: "Levio",
-    repo: "levio",
-    area: "Inteligență artificială",
-    summary: "Aplicația MedScribe: notarea unei consultații, cu documentația alături.",
-    image: photos.ai,
-    href: "https://levio-app.vercel.app",
-  },
-  {
-    name: "CAPTURE AI",
-    repo: "capture-ai",
-    area: "Inteligență artificială",
-    summary: "Spațiu de lucru pentru un pilot de fezabilitate cu un client.",
-    image: photos.ai,
+    name: "REDI NGO",
+    area: "Social",
+    summary:
+      "Site-ul public al rețelei REDI: programe, echipă, rezultate, știri și o hartă a celor șapte țări în care lucrează, în engleză și română.",
+    credit: "Petrică Dulgheru, împreună cu echipa REDI",
+    href: "https://redi-ngo.eu",
+    domain: "redi-ngo.eu",
+    screen: "/screens/redi-ngo.jpg",
   },
   {
     name: "Chemistry tools",
-    repo: "chemistry-tools",
     area: "Chimie",
-    summary: "Șase instrumente de simulare: structuri, grafice și scenarii de laborator.",
-    image: photos.lab,
+    summary:
+      "Șase simulatoare legate între ele: orbitali atomici, cinetică, titrare, indici Miller, ecuația van der Waals și microscopie cu emisie de câmp.",
+    credit: "Petrică Dulgheru",
     href: "https://chemistry-tools.vercel.app",
-  },
-  {
-    name: "Three Worlds",
-    repo: "3worlds",
-    area: "Chimie",
-    summary: "Platformă pe trei piloni: chimie, capital și comunitate.",
-    image: photos.lab,
-    href: "https://3worlds.vercel.app",
+    domain: "chemistry-tools.vercel.app",
+    screen: "/screens/chemistry-tools.jpg",
   },
   {
     name: "Sentinel",
-    repo: "sentinel-cbrn",
     area: "Platforme",
     summary:
-      "Hartă cu aer, radiații și vreme, din stații de senzori. Datele afișate sunt citiri de mediu, nu un plan de intervenție.",
-    image: photos.map,
+      "Hartă a României care adună date publice despre calitatea aerului și debitul dozei gamma, din surse precum Open-Meteo și Safecast, și afișează o alertă când o valoare trece de prag.",
+    credit: "Petrică Dulgheru",
     href: "https://sentinel-cbrn.vercel.app",
+    domain: "sentinel-cbrn.vercel.app",
+    screen: "/screens/sentinel-map.jpg",
   },
   {
-    name: "Summit 2026",
-    repo: "redi-summit-2026",
-    area: "Social",
-    summary: "Pagină pentru Brussels Economic Inclusion Forum.",
-    image: photos.desk,
-    href: "https://redi-summit-2026-six.vercel.app",
-  },
-  {
-    draft: true,
-    name: "REDI NGO",
-    repo: "redi-ngo-site",
-    area: "Social",
-    summary: "Copie statică a site-ului redi-ngo.eu.",
-    image: photos.ops,
-    href: "https://redi-ngo-site.vercel.app",
-  },
-  {
-    name: "DBI4Roma",
-    repo: "dbi4roma-mockup",
-    area: "Social",
-    summary: "Machetă de interfață. Depozitul nu are o descriere de produs.",
-    image: photos.desk,
-    href: "https://dbi4roma-mockup.vercel.app",
-  },
-  {
-    name: "DG NEAR",
-    repo: "dg-near-dashboard",
-    area: "Platforme",
+    name: "Scriva",
+    area: "Sănătate",
     summary:
-      "Panou de livrare pentru un program în Turcia, Serbia și Macedonia de Nord. Rămâne închis, fără adresă publică.",
-    image: photos.map,
+      "Asistent pentru medic în timpul consultației: transcrie discuția și pregătește nota clinică, pe care medicul o verifică și o semnează.",
+    credit: "Petrică Dulgheru",
+    href: "https://scriva.doctor",
+    domain: "scriva.doctor",
+    screen: "/screens/scriva.jpg",
   },
   {
-    name: "RPG Neda",
-    repo: "rpg-neda",
-    area: "Platforme",
+    name: "Rural Digital Health",
+    area: "Sănătate",
     summary:
-      "Urmărire vizuală pentru un proiect european: indicatori de la parteneri și execuție de buget. Fără adresă publică.",
-    image: photos.ops,
+      "Prototip de telemedicină pentru sate din România și Bulgaria: programare, consultație la distanță și fișa pacientului.",
+    credit: "Petrică Dulgheru",
+    href: "https://rural-digital-health.vercel.app",
+    domain: "rural-digital-health.vercel.app",
+    screen: "/screens/rural-health.jpg",
   },
-  {
-    name: "RFE",
-    repo: "redi-rfe-dashboard",
-    area: "Platforme",
-    summary: "Panou de cheltuieli pentru un program. Fără adresă publică.",
-    image: photos.ops,
-  },
-  {
-    name: "RFE app",
-    repo: "rfe-app",
-    area: "Platforme",
-    summary: "Aplicație din aceeași familie. Depozitul nu are descriere publicată.",
-    image: photos.racks,
-  },
-  {
-    name: "Lichiditate",
-    repo: "redi-ceo-liquidity",
-    area: "Platforme",
-    summary: "Panou intern: buget rămas, ritm de cheltuire, bancă față de cerere. Fără adresă publică.",
-    image: photos.ops,
-  },
-  {
-    name: "Zeljko",
-    repo: "zeljko-platform",
-    area: "Platforme",
-    summary: "Intrări legate pe categorii, niveluri de acces, validare și jurnal de audit.",
-    image: photos.racks,
-    href: "https://zeljko-platform.vercel.app",
-  },
-  {
-    name: "Evidență",
-    repo: "intelligence-database",
-    area: "Platforme",
-    summary: "Sistem de evidență cu acces controlat. Fără adresă publică.",
-    image: photos.racks,
-  },
-  {
-    name: "SEO engine",
-    repo: "seo-engine",
-    area: "Platforme",
-    summary: "Pachet reutilizabil pentru metadata, sitemap, robots și un audit din linia de comandă.",
-    image: photos.racks,
-  },
-  {
-    name: "Lumière",
-    repo: "Lumiere-Beauty-Fatima",
-    area: "Platforme",
-    summary: "Platformă pentru un salon.",
-    image: photos.desk,
-    href: "https://lumiere-beauty-fatima.vercel.app",
-  },
-  {
-    name: "360 Disruption",
-    repo: "360-disruption-website",
-    area: "Platforme",
-    summary: "Site pentru o platformă de execuție industrială.",
-    image: photos.racks,
-  },
-  {
-    draft: true,
-    name: "Glow Up Studio",
-    repo: "glow-up-studio",
-    area: "Platforme",
-    summary: "Schiță de interfață, fără produs publicat.",
-    image: photos.ops,
-  },
-  {
-    draft: true,
-    name: "Shine Bright",
-    repo: "dashboard-shine-bright",
-    area: "Platforme",
-    summary: "Schiță de panou, fără produs publicat.",
-    image: photos.ops,
-  },
+];
+
+export const others: Project[] = [
+  { name: "Optim Dental", href: "https://optim-dental-ai-stoma.vercel.app", area: "Sănătate", summary: "Citirea radiografiilor dentare, ca sprijin pentru planul de tratament." },
+  { name: "Levio", href: "https://levio-app.vercel.app", area: "Sănătate", summary: "MedScribe, notițele unei consultații scrise pe măsură ce medicul vorbește." },
+  { name: "Three Worlds", href: "https://3worlds.vercel.app", area: "Chimie", summary: "Site personal despre chimie, capital și comunitate." },
+  { name: "CAPTURE AI", area: "Platforme", summary: "Spațiul de lucru pentru un studiu de fezabilitate." },
+  { name: "Zeljko", href: "https://zeljko-platform.vercel.app", area: "Platforme", summary: "Bază de date cu înregistrări legate între ele, drepturi de acces și jurnal al modificărilor." },
+  { name: "Evidență", area: "Platforme", summary: "Sistem de evidență cu acces pe niveluri." },
+  { name: "Summit 2026", href: "https://redi-summit-2026-six.vercel.app", area: "Social", summary: "Site de eveniment, cu program și înscrieri." },
+  { name: "DBI4Roma", href: "https://dbi4roma-mockup.vercel.app", area: "Social", summary: "Machetă de interfață." },
+  { name: "360 Disruption", area: "Platforme", summary: "Site de prezentare pentru o platformă industrială." },
+  { name: "Lumière", href: "https://lumiere-beauty-fatima.vercel.app", area: "Platforme", summary: "Programări și prezentare pentru un salon." },
+  { name: "SEO engine", area: "Platforme", summary: "Pachet comun pentru metadate, sitemap și verificarea site-urilor noastre." },
 ];

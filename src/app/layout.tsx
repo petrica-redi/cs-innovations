@@ -18,17 +18,17 @@ const sourceSerif = Source_Serif_4({
 });
 
 const description =
-  "CS INNOVATIONS SOLUTIONS SRL proiectează platforme informatice și duce proiecte de chimie și inovare socială. Selectată în incubatorul EIT RawMaterials și în acceleratorul 28DIGITAL, programe finanțate de Uniunea Europeană.";
+  "CS Innovations proiectează platforme informatice pentru servicii sociale, sănătate și laborator și lucrează la proiecte de chimie și de inovare socială. Blejești, Teleorman, din 2017.";
 
 export const metadata: Metadata = {
   title: {
-    default: `${company.brand} | Dezvoltare și platforme`,
+    default: `${company.brand} | Firmă de inginerie și platforme informatice`,
     template: `%s | ${company.brand}`,
   },
   description,
   authors: [{ name: company.legalName }],
   openGraph: {
-    title: `${company.brand} | Dezvoltare și platforme`,
+    title: `${company.brand} | Firmă de inginerie și platforme informatice`,
     description,
     locale: "ro_RO",
     type: "website",

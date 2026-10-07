@@ -1,180 +1,140 @@
-import Image from "next/image";
 import Link from "next/link";
-import { company, competitions, delivery } from "@/lib/company";
+import { Screen } from "@/components/Screen";
+import { company, programmes, steps } from "@/lib/company";
+import { featured } from "@/lib/projects";
 
-const practices = [
+const areasOfWork = [
   {
     title: "Platforme informatice",
     href: "/proiecte?domeniu=Platforme",
-    image: "/photos/racks.jpg",
-    alt: "Culoar de rack-uri, cu lumini de stare",
-    caption: "Infrastructura pe care se predă un sistem.",
-    text: "Sisteme cu roluri, dosar, rapoarte și hartă, predate cu cod și cu manual în limba română. Un model poate căuta sau redacta o primă variantă; omul confirmă.",
+    text: "Aplicații web pentru echipe care lucrează cu dosare, consultații sau date de la senzori. Pornim de la procedura pe care oamenii o aplică deja.",
   },
   {
     title: "Chimie",
     href: "/proiecte?domeniu=Chimie",
-    image: "/photos/lab-screen.jpg",
-    alt: "Laborator cu un model molecular pe ecran",
-    caption: "Versiuni, loturi și pași, pe ecranul de lucru.",
-    text: "Proiectele țin versiunile unei formule, loturile și cine a schimbat un pas. Rețetele rămân nepublicate.",
-    flip: true,
+    text: "Proiecte de inovare în chimie și programe pentru laborator. Chemistry tools reunește șase simulatoare, de la orbitali atomici la titrare.",
   },
   {
-    title: "Inovație socială",
+    title: "Inovare socială",
     href: "/proiecte?domeniu=Social",
-    image: "/photos/community-desk.jpg",
-    alt: "Birou cu un laptop deschis pe o listă de dosare",
-    caption: "Dosarul de lucru, pe biroul echipei.",
-    text: "Instrumente pentru echipe care lucrează cu oameni. SISCI este platforma de management de caz pentru servicii comunitare integrate: evaluare, plan, monitorizare și roluri.",
-  },
-];
-
-const systems = [
-  {
-    name: "SISCI",
-    text: "Management de caz: evaluare, plan, monitorizare și roluri.",
-    image: "/photos/community-desk.jpg",
-    alt: "Listă de dosare pe un laptop",
-    href: "https://sisci.vercel.app",
-  },
-  {
-    name: "Chemistry tools",
-    text: "Șase instrumente de simulare pentru laborator.",
-    image: "/photos/lab-screen.jpg",
-    alt: "Model molecular și un grafic pe un monitor de laborator",
-    href: "https://chemistry-tools.vercel.app",
-  },
-  {
-    name: "Sentinel",
-    text: "Hartă cu aer, radiații și vreme, din stații de senzori.",
-    image: "/photos/map-wall.jpg",
-    alt: "Hartă de sistem pe un ecran de sală",
-    href: "https://sentinel-cbrn.vercel.app",
-  },
-  {
-    name: "Scriva",
-    text: "Consultație clinică asistată, pentru echipe medicale.",
-    image: "/photos/clinic-tablet.jpg",
-    alt: "Tabletă cu o imagine medicală abstractă, pe un birou de clinică",
-    href: "https://scriva.doctor",
+    text: "Instrumente pentru cei care lucrează direct cu oamenii dintr-o comunitate: asistenți sociali, mediatori sanitari, consilieri de afaceri.",
   },
 ];
 
 export default function Home() {
+  const showcase = featured.slice(0, 4);
+
   return (
     <main className="flex-1">
-      <section className="mx-auto grid max-w-[1120px] items-start gap-8 px-5 py-12 lg:grid-cols-12 lg:py-16">
-        <div className="lg:col-span-7">
-          <p className="text-[13px] tracking-[0.08em] text-copper uppercase">
-            Platforme, chimie, inovare socială
-          </p>
-          <h1 className="mt-4 max-w-[18em] font-serif text-[2.5rem] leading-[1.15] md:text-5xl">
-            Proiectăm platforme. Ducem proiecte de chimie și de inovare socială.
+      <section className="mx-auto grid max-w-[1180px] items-center gap-12 px-5 pt-14 pb-16 lg:grid-cols-[1fr_1.1fr] lg:pt-20">
+        <div>
+          <h1 className="max-w-[16em] font-serif text-[2.6rem] leading-[1.1] md:text-[3.4rem]">
+            Proiectăm platforme pentru servicii sociale, sănătate și laborator.
           </h1>
-          <p className="mt-5 max-w-[62ch] text-[17px] leading-relaxed text-ink-soft">
-            Din {company.founded} proiectăm platforme informatice și ducem proiecte de
-            inovare în chimie și inovare socială. {company.legalName} a fost selectată în
-            incubatorul EIT RawMaterials și în acceleratorul 28DIGITAL, programe finanțate
-            de Uniunea Europeană.
+          <p className="mt-6 max-w-[56ch] text-lg leading-relaxed text-ink-soft">
+            Suntem CS Innovations, o firmă de inginerie înființată în {company.founded} la Blejești, în
+            Teleorman. O conduce {company.founder}, chimist de formare, care proiectează și construiește
+            platformele firmei.
           </p>
-          <p className="mt-6 flex flex-wrap gap-3">
-            <Link
-              href="/pentru-autoritati"
-              className="inline-block bg-ink px-4 py-2 text-sm text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
-            >
-              Pentru autorități
-            </Link>
+          <p className="mt-8 flex flex-wrap gap-3">
             <Link
               href="/proiecte"
-              className="inline-block border border-ink px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+              className="rounded-full bg-ink px-5 py-2.5 text-sm text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
             >
-              Sisteme
+              Vezi proiectele
+            </Link>
+            <Link
+              href="/pentru-autoritati"
+              className="rounded-full border border-ink/30 px-5 py-2.5 text-sm hover:border-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+            >
+              Pentru autorități contractante
             </Link>
           </p>
         </div>
-        <figure className="lg:col-span-5">
-          <div className="relative aspect-[4/3] max-h-[560px] bg-night">
-            <Image
-              src="/photos/ops-wall.jpg"
-              alt="Sală de lucru cu un perete de monitoare pe care rulează sisteme"
-              fill
-              priority
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover object-[center_30%]"
-            />
-          </div>
-          <figcaption className="mt-2 text-sm text-ink-soft">
-            Sală de lucru: hartă, liste și grafice pe același perete.
-          </figcaption>
-        </figure>
+        <div className="relative pb-16 lg:pb-24">
+          <Screen
+            src="/screens/sisci-case.jpg"
+            domain="sisci.vercel.app"
+            alt="Dosarul unui beneficiar în SISCI, cu pașii de la evaluare la închidere"
+            priority
+          />
+          <Screen
+            src="/screens/redi-healthcare.jpg"
+            domain="redi.healthcare"
+            alt="Prima pagină REDI Health, cu explicarea unei rețete pe telefon"
+            sizes="(min-width: 1024px) 30vw, 60vw"
+            className="absolute right-0 bottom-0 w-[62%] xl:right-[-4%]"
+          />
+        </div>
       </section>
 
-      <dl className="mx-auto grid max-w-[1120px] gap-4 border-t border-line px-5 py-5 text-sm sm:grid-cols-4">
-        <div>
-          <dt className="text-ink-soft">Firmă</dt>
-          <dd>{company.legalName}</dd>
+      <section className="border-y border-line bg-[#ece7dd]">
+        <div className="mx-auto grid max-w-[1180px] gap-6 px-5 py-8 sm:grid-cols-2 lg:grid-cols-[auto_1fr_1fr] lg:items-center lg:gap-12">
+          <p className="font-serif text-xl">Programe europene</p>
+          {programmes.map((item) => (
+            <p key={item.name} className="text-[15px] leading-relaxed text-ink-soft">
+              <a
+                href={item.href}
+                rel="noreferrer"
+                className="font-medium text-ink underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+              >
+                {item.kind} {item.name}
+              </a>
+              . {item.text}
+            </p>
+          ))}
         </div>
-        <div>
-          <dt className="text-ink-soft">CUI</dt>
-          <dd>{company.cui}</dd>
-        </div>
-        <div>
-          <dt className="text-ink-soft">CAEN</dt>
-          <dd>
-            {company.caen} · {company.caenLabel}
-          </dd>
-        </div>
-        <div>
-          <dt className="text-ink-soft">Sediu</dt>
-          <dd>
-            {company.founded}, Blejești, Teleorman
-          </dd>
-        </div>
-      </dl>
+      </section>
 
-      <section className="mx-auto max-w-[1120px] space-y-16 px-5 py-16" aria-label="Direcții">
-        {practices.map((item) => (
-          <article key={item.title} className="grid items-start gap-8 lg:grid-cols-2">
-            <figure className={item.flip ? "lg:order-2" : ""}>
-              <div className="relative aspect-[4/3] bg-night">
-                <Image src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
-              </div>
-              <figcaption className="mt-2 text-sm text-ink-soft">{item.caption}</figcaption>
-            </figure>
-            <div>
-              <h2 className="font-serif text-[1.75rem] leading-tight">{item.title}</h2>
-              <p className="mt-4 max-w-[62ch] text-[17px] leading-relaxed text-ink-soft">{item.text}</p>
-              <p className="mt-4">
-                <Link
-                  href={item.href}
-                  className="text-sm underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
-                >
-                  Vezi sistemele
-                </Link>
-              </p>
+      <section className="mx-auto max-w-[1180px] px-5 py-20" aria-labelledby="ce-facem">
+        <h2 id="ce-facem" className="font-serif text-3xl">
+          Ce facem
+        </h2>
+        <div className="mt-10 grid gap-10 md:grid-cols-3">
+          {areasOfWork.map((item) => (
+            <div key={item.title} className="border-t-2 border-ink pt-5">
+              <h3 className="font-serif text-2xl">{item.title}</h3>
+              <p className="mt-3 leading-relaxed text-ink-soft">{item.text}</p>
+              <Link
+                href={item.href}
+                className="mt-4 inline-block text-sm underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+              >
+                Proiectele din acest domeniu
+              </Link>
             </div>
-          </article>
-        ))}
+          ))}
+        </div>
       </section>
 
-      <section className="border-y border-line" aria-labelledby="programe">
-        <div className="mx-auto max-w-[1120px] px-5 py-16">
-          <h2 id="programe" className="font-serif text-[1.75rem]">
-            Programe europene
-          </h2>
-          <ul className="mt-8 grid gap-8 lg:grid-cols-2">
-            {competitions.map((item) => (
-              <li key={item.name} className="border-t border-line pt-5">
-                <p className="text-[13px] tracking-[0.08em] text-copper uppercase">{item.status}</p>
-                <h3 className="mt-2 font-serif text-[1.375rem]">{item.name}</h3>
-                <p className="mt-3 max-w-[62ch] text-[17px] leading-relaxed text-ink-soft">{item.text}</p>
+      <section className="bg-night text-paper" aria-labelledby="platforme">
+        <div className="mx-auto max-w-[1180px] px-5 py-20">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="platforme" className="font-serif text-3xl">
+              Platforme pe care le-am construit
+            </h2>
+            <Link
+              href="/proiecte"
+              className="text-sm underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+            >
+              Toate proiectele
+            </Link>
+          </div>
+          <ul className="mt-10 grid gap-x-10 gap-y-12 md:grid-cols-2">
+            {showcase.map((project) => (
+              <li key={project.name}>
                 <a
-                  href={item.href}
-                  className="mt-3 inline-block text-sm underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+                  href={project.href}
                   rel="noreferrer"
+                  className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
                 >
-                  Pagina programului
+                  <Screen
+                    src={project.screen!}
+                    domain={project.domain!}
+                    alt={`Pagina ${project.name}, așa cum arată online`}
+                    sizes="(min-width: 768px) 45vw, 100vw"
+                  />
+                  <h3 className="mt-4 font-serif text-2xl group-hover:underline">{project.name}</h3>
+                  <p className="mt-2 leading-relaxed text-paper/75">{project.summary}</p>
                 </a>
               </li>
             ))}
@@ -182,46 +142,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1120px] px-5 py-16" aria-labelledby="predare">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 id="predare" className="font-serif text-[1.75rem]">
-            Cum se predă
+      <section className="mx-auto grid max-w-[1180px] gap-10 px-5 py-20 lg:grid-cols-[1fr_1.4fr]" aria-labelledby="cum">
+        <div>
+          <h2 id="cum" className="font-serif text-3xl">
+            Cum lucrăm
           </h2>
+          <p className="mt-4 max-w-[44ch] leading-relaxed text-ink-soft">
+            Punem aplicația devreme în mâna oamenilor care o vor folosi și o corectăm după ce ne spun ei.
+          </p>
           <Link
             href="/pentru-autoritati"
-            className="text-sm underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+            className="mt-4 inline-block text-sm underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
           >
-            Pagina pentru autorități
+            Detalii pentru autorități contractante
           </Link>
         </div>
-        <ol className="mt-8 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
-          {delivery.map(([title, text], index) => (
-            <li key={title} className="bg-paper p-5">
-              <p className="text-[13px] text-copper">{String(index + 1).padStart(2, "0")}</p>
-              <h3 className="mt-2 font-serif text-[1.375rem]">{title}</h3>
-              <p className="mt-2 text-sm leading-6 text-ink-soft">{text}</p>
+        <ol className="space-y-6">
+          {steps.map((text, index) => (
+            <li key={text} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-line pb-6">
+              <span className="font-serif text-2xl text-copper">{index + 1}</span>
+              <p className="text-lg leading-relaxed">{text}</p>
             </li>
           ))}
         </ol>
-      </section>
-
-      <section className="mx-auto max-w-[1120px] px-5 pb-20" aria-labelledby="sisteme">
-        <h2 id="sisteme" className="font-serif text-[1.75rem]">
-          Patru sisteme
-        </h2>
-        <ul className="mt-8 grid gap-8 sm:grid-cols-2">
-          {systems.map((item) => (
-            <li key={item.name}>
-              <a href={item.href} rel="noreferrer" className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper">
-                <div className="relative aspect-[16/10] bg-night">
-                  <Image src={item.image} alt={item.alt} fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover" />
-                </div>
-                <h3 className="mt-3 font-serif text-[1.375rem] group-hover:underline">{item.name}</h3>
-                <p className="mt-1 text-sm text-ink-soft">{item.text}</p>
-              </a>
-            </li>
-          ))}
-        </ul>
       </section>
     </main>
   );

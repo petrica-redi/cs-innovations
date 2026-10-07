@@ -1,55 +1,51 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { company } from "@/lib/company";
+import { Screen } from "@/components/Screen";
+import { company, programmes } from "@/lib/company";
 
 export const metadata: Metadata = {
-  title: "Despre",
-  description: `${company.legalName}, selectată în incubatorul EIT RawMaterials și în acceleratorul 28DIGITAL.`,
+  title: "Despre noi",
+  description: `${company.legalName}, firmă de inginerie din Blejești condusă de ${company.founder}.`,
 };
 
 export default function DesprePage() {
   return (
-    <main className="mx-auto w-full max-w-[1120px] flex-1 px-5 py-16">
-      <div className="grid items-start gap-8 lg:grid-cols-2">
+    <main className="mx-auto w-full max-w-[1180px] flex-1 px-5 py-16">
+      <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_1fr]">
         <div>
-          <p className="text-[13px] tracking-[0.08em] text-copper uppercase">Despre</p>
-          <h1 className="mt-3 font-serif text-[2.5rem] leading-[1.15] md:text-5xl">{company.brand}</h1>
-          <div className="mt-6 max-w-[62ch] space-y-4 text-[17px] leading-relaxed text-ink-soft">
+          <h1 className="font-serif text-[2.6rem] leading-[1.1] md:text-5xl">Despre noi</h1>
+          <div className="mt-6 max-w-[62ch] space-y-5 text-[17px] leading-relaxed text-ink-soft">
             <p>
-              {company.legalName} este firma din spatele numelui {company.brand}. A fost
-              înființată în {company.founded}, cu sediul în Blejești, județul Teleorman.
-              Obiectul de activitate este CAEN {company.caen}, {company.caenLabel.toLowerCase()}.
+              {company.legalName}, cunoscută sub numele {company.brand}, a fost înființată în{" "}
+              {company.founded} și are sediul în Blejești, județul Teleorman. Fondatorul și administratorul
+              firmei este {company.founder}.
             </p>
             <p>
-              Proiectăm platforme informatice. În paralel ducem proiecte de inovare în
-              chimie și proiecte de inovare socială. SISCI este platforma de management de
-              caz construită pentru servicii comunitare integrate: evaluare, plan,
-              monitorizare și roluri.
-            </p>
-            <p>
-              Firma a fost selectată în incubatorul EIT RawMaterials și în acceleratorul
-              28DIGITAL (Digital28). 28DIGITAL este denumirea actuală a fostei comunități
-              EIT Digital, în cadrul Institutului European de Inovare și Tehnologie.
-              Programele sunt finanțate de Uniunea Europeană.
+              Petrică este chimist de formare și dezvoltă aplicații informatice. De aici vin direcțiile firmei:
+              proiecte de inovare în chimie și platforme informatice, multe gândite pentru servicii sociale
+              și de sănătate. A construit SISCI, REDI Health, REDI Business, Scriva, Chemistry tools și
+              Sentinel. Site-ul redi-ngo.eu l-a realizat împreună cu echipa REDI.
             </p>
           </div>
         </div>
-        <figure>
-          <div className="relative aspect-[4/3] bg-night">
-            <Image
-              src="/photos/ops-wall.jpg"
-              alt="Perete de monitoare într-o sală de lucru"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover object-[center_30%]"
-            />
-          </div>
-          <figcaption className="mt-2 text-sm text-ink-soft">
-            Sistemele se văd pe același perete: hartă, liste, grafic.
-          </figcaption>
-        </figure>
+        <Screen src="/screens/redi-business.jpg" domain="redi.business" alt="Prima pagină REDI Business" />
       </div>
-      <dl className="mt-14 grid gap-6 border-t border-line pt-8 text-sm sm:grid-cols-2 lg:grid-cols-3">
+
+      <section className="mt-16 grid gap-6 md:grid-cols-2" aria-label="Programe europene">
+        {programmes.map((item) => (
+          <a
+            key={item.name}
+            href={item.href}
+            rel="noreferrer"
+            className="block rounded-md border border-ink/15 p-6 hover:border-ink/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+          >
+            <p className="text-sm text-copper">{item.kind}</p>
+            <h2 className="mt-1 font-serif text-2xl">{item.name}</h2>
+            <p className="mt-2 leading-relaxed text-ink-soft">{item.text}</p>
+          </a>
+        ))}
+      </section>
+
+      <dl id="date" className="mt-16 grid scroll-mt-24 gap-6 border-t border-line pt-8 text-sm sm:grid-cols-2 lg:grid-cols-3">
         <div>
           <dt className="text-ink-soft">Denumire</dt>
           <dd className="mt-1">{company.legalName}</dd>
@@ -65,12 +61,12 @@ export default function DesprePage() {
         <div>
           <dt className="text-ink-soft">CAEN</dt>
           <dd className="mt-1">
-            {company.caen} — {company.caenLabel}
+            {company.caen}, {company.caenLabel.toLowerCase()}
           </dd>
         </div>
         <div>
-          <dt className="text-ink-soft">Înființare</dt>
-          <dd className="mt-1">{company.founded}</dd>
+          <dt className="text-ink-soft">Administrator</dt>
+          <dd className="mt-1">{company.founder}</dd>
         </div>
         <div>
           <dt className="text-ink-soft">Sediu</dt>

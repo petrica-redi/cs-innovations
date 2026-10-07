@@ -14,8 +14,7 @@ export function Header() {
           href="/"
           className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
         >
-          <span className="block font-serif text-lg leading-none">{company.brand}</span>
-          <span className="mt-1 block text-xs text-paper/70">{company.legalName}</span>
+          <span className="block font-serif text-xl leading-none">{company.brand}</span>
         </Link>
         <nav aria-label="Principal" className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {nav.map((item) => {

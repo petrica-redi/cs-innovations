@@ -3,6 +3,7 @@
 export const company = {
   brand: "CS Innovations",
   legalName: "CS INNOVATIONS SOLUTIONS SRL",
+  founder: "Petrică Dulgheru",
   cui: "37754895",
   tradeRegister: "J2017000383345",
   founded: "2017",
@@ -14,37 +15,35 @@ export const company = {
   email: "",
   phone: "",
   caen: "7112",
-  caenLabel: "Activități de inginerie și consultanță tehnică",
+  caenLabel: "Activități de inginerie și consultanță tehnică legate de acestea",
 } as const;
 
 export const nav = [
-  { href: "/pentru-autoritati", label: "Pentru autorități" },
-  { href: "/servicii", label: "Servicii" },
   { href: "/proiecte", label: "Proiecte" },
-  { href: "/despre", label: "Despre" },
+  { href: "/servicii", label: "Servicii" },
+  { href: "/pentru-autoritati", label: "Pentru autorități" },
+  { href: "/despre", label: "Despre noi" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
-export const competitions = [
+export const programmes = [
   {
     name: "EIT RawMaterials",
-    status: "Incubator",
+    kind: "Incubator",
     href: "https://eitrawmaterials.eu/",
-    text: "Firma a fost selectată în incubatorul pentru materii prime al Institutului European de Inovare și Tehnologie. Programul este finanțat de Uniunea Europeană.",
+    text: "Comunitatea Institutului European de Inovare și Tehnologie pentru materii prime, finanțată de Uniunea Europeană.",
   },
   {
     name: "28DIGITAL",
-    status: "Accelerator",
+    kind: "Accelerator",
     href: "https://28digital.eu/",
-    text: "Firma a fost selectată în acceleratorul 28DIGITAL (Digital28), denumirea actuală a fostei comunități EIT Digital. Programul este finanțat de Uniunea Europeană.",
+    text: "Program de accelerare pentru firme digitale, cunoscut și ca Digital28, finanțat de Uniunea Europeană.",
   },
 ] as const;
 
-export const delivery = [
-  ["Analiză", "Cerințele se scriu înainte de ecrane: cine folosește sistemul și ce intră în prima versiune."],
-  ["Construire", "Aplicație cu roluri, dosar, registre, rapoarte și nomenclatoare pe care instituția le modifică fără o nouă instalare."],
-  ["Teritoriu", "Hartă și portal cu date agregate, fără nume și fără cod numeric personal."],
-  ["Teren", "Lucru în afara biroului, inclusiv fără rețea, cu sincronizare la revenire."],
-  ["Legături", "Integrare prin interfață de programare, pe specificația și mediul de test date de instituție."],
-  ["Recepție", "Testare, pilot, instruire și suport, cu cod, manual în limba română și scenariile de recepție."],
+export const steps = [
+  "Stăm întâi cu oamenii care vor lucra în aplicație și scriem împreună ce trebuie să facă prima versiune.",
+  "Arătăm devreme ecrane care funcționează, ca echipa să le încerce pe date de test și să ne spună ce lipsește.",
+  "Pornim un pilot cu o parte din echipă și corectăm ce se vede abia în lucrul de zi cu zi.",
+  "La final instruim utilizatorii și predăm codul sursă, împreună cu un manual în limba română.",
 ] as const;
