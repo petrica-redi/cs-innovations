@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3efe6;
+  --ink: #141311;
+  --ink-soft: #5c564c;
+  --line: #ddd4c6;
+  --copper: #c4623a;
+  --night: #10100e;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-copper: var(--copper);
+  --color-night: var(--night);
+  --font-sans: var(--font-source-sans);
+  --font-serif: var(--font-source-serif);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-source-sans), "Source Sans 3", sans-serif;
+}
+
+h1,
+h2,
+.font-serif {
+  font-family: var(--font-source-serif), "Source Serif 4", serif;
+}
