@@ -26,29 +26,30 @@ const frames = [
 export default function Home() {
   return (
     <main className="flex-1">
-      <section className="relative min-h-[78vh] bg-night text-paper">
-        <Image
-          src="/photos/ops-wall.jpg"
-          alt="Sală de lucru cu un perete de monitoare pe care rulează sisteme"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-night/90 via-night/35 to-night/10" />
-        <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-end px-5 py-12">
+      <section>
+        <div className="relative h-[72vh] min-h-[420px] bg-night">
+          <Image
+            src="/photos/ops-wall.jpg"
+            alt="Sală de lucru cu un perete de monitoare pe care rulează sisteme"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_35%]"
+          />
+        </div>
+        <div className="mx-auto max-w-6xl px-5 py-10">
           <p className="text-sm tracking-wide text-copper">CS INNOVATIONS SOLUTIONS SRL</p>
-          <h1 className="mt-3 max-w-3xl text-4xl leading-tight sm:text-6xl">
+          <h1 className="mt-3 max-w-3xl text-4xl leading-tight text-ink sm:text-6xl">
             Sisteme pe care le poți deschide.
           </h1>
-          <p className="mt-4 max-w-xl text-lg text-paper/85">
+          <p className="mt-4 max-w-xl text-lg text-ink-soft">
             Dezvoltăm platforme. Inteligența artificială asistă munca. Chimia și serviciile
             sociale au fiecare instrumentele lor.
           </p>
           <p className="mt-6">
             <Link
               href="/proiecte"
-              className="inline-block border border-paper px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+              className="inline-block border border-ink px-4 py-2 text-sm text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
             >
               {projects.length} proiecte din GitHub
             </Link>
