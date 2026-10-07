@@ -28,21 +28,23 @@ export const nav = [
 export const competitions = [
   {
     name: "EIT RawMaterials",
+    status: "Incubator",
     href: "https://eitrawmaterials.eu/",
-    text: "Competiție a Institutului European de Inovare și Tehnologie pentru materii prime: de la procesare și trasabilitate până la materiale folosite mai departe.",
+    text: "Firma a fost selectată în incubatorul pentru materii prime al Institutului European de Inovare și Tehnologie. Programul este finanțat de Uniunea Europeană.",
   },
   {
     name: "28DIGITAL",
+    status: "Accelerator",
     href: "https://28digital.eu/",
-    text: "Competiție a comunității digitale a aceluiași institut. 28DIGITAL este numele actual al fostului EIT Digital.",
+    text: "Firma a fost selectată în acceleratorul 28DIGITAL (Digital28), denumirea actuală a fostei comunități EIT Digital. Programul este finanțat de Uniunea Europeană.",
   },
 ] as const;
 
 export const delivery = [
-  ["Analiză", "Cerințele se scriu înainte de ecrane: cine folosește sistemul, ce intră în prima versiune, ce rămâne pe mai târziu."],
-  ["Construire", "Aplicație web cu roluri, dosar, registre, rapoarte și nomenclatoare pe care autoritatea le poate modifica fără o nouă instalare."],
-  ["Teritoriu și public", "Hartă, portal cu date agregate și fără nume sau coduri personale, plus bibliotecă și mesaje către echipă."],
-  ["Teren", "Aplicație pentru lucru în afara biroului, inclusiv atunci când rețeaua lipsește, cu sincronizare la revenire."],
-  ["Legături", "Integrare prin interfață de programare, când instituția dă specificația și un mediu de test."],
-  ["Recepție", "Testare, pilot, instruire și o perioadă de suport. Predarea include codul, manualul în limba română și scenariile pe care s-a făcut recepția."],
+  ["Analiză", "Cerințele se scriu înainte de ecrane: cine folosește sistemul și ce intră în prima versiune."],
+  ["Construire", "Aplicație cu roluri, dosar, registre, rapoarte și nomenclatoare pe care instituția le modifică fără o nouă instalare."],
+  ["Teritoriu", "Hartă și portal cu date agregate, fără nume și fără cod numeric personal."],
+  ["Teren", "Lucru în afara biroului, inclusiv fără rețea, cu sincronizare la revenire."],
+  ["Legături", "Integrare prin interfață de programare, pe specificația și mediul de test date de instituție."],
+  ["Recepție", "Testare, pilot, instruire și suport, cu cod, manual în limba română și scenariile de recepție."],
 ] as const;

@@ -18,7 +18,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 const description =
-  "CS INNOVATIONS SOLUTIONS SRL construiește sisteme informatice pentru instituții: dosar, rapoarte, hartă, teren și suport. Înscrisă în competițiile EIT RawMaterials și 28DIGITAL.";
+  "CS INNOVATIONS SOLUTIONS SRL proiectează platforme informatice și duce proiecte de chimie și inovare socială. Selectată în incubatorul EIT RawMaterials și în acceleratorul 28DIGITAL, programe finanțate de Uniunea Europeană.";
 
 export const metadata: Metadata = {
   title: {

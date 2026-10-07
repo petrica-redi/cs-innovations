@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProjectGrid } from "@/components/ProjectGrid";
-import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Proiecte",
@@ -10,15 +9,14 @@ export const metadata: Metadata = {
 
 export default function ProiectePage() {
   return (
-    <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-12">
-      <h1 className="text-4xl">Proiecte</h1>
-      <p className="mt-4 max-w-2xl text-lg text-ink-soft">
-        {projects.length} depozite din contul GitHub, în afară de tutorialul gol al
-        aplicației desktop. Pentru o achiziție de sistem informatic, cele mai apropiate
-        sunt SISCI, instrumentele de chimie, harta Sentinel și platformele de sănătate.
-        Unele sunt demonstrații, altele instrumente interne. Lista nu este un registru de
-        contracte. Depozitele rămân private; unde există o adresă deja publică, ea este
-        legată.
+    <main className="mx-auto w-full max-w-[1120px] flex-1 px-5 py-16">
+      <p className="text-[13px] tracking-[0.08em] text-copper uppercase">Sisteme</p>
+      <h1 className="mt-3 font-serif text-[2.5rem] leading-[1.15] md:text-5xl">Proiecte</h1>
+      <p className="mt-4 max-w-[62ch] text-[17px] leading-relaxed text-ink-soft">
+        Pe această pagină sunt sistemele construite de CS Innovations: platforme
+        informatice, instrumente de chimie, proiecte sociale și de sănătate. SISCI este
+        platforma de management de caz pentru servicii comunitare integrate, cu evaluare,
+        plan, monitorizare și roluri. Depozitele private rămân fără adresă publică.
       </p>
       <div className="mt-8">
         <ProjectGrid />

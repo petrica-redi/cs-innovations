@@ -12,6 +12,7 @@ export type Project = {
   summary: string;
   image: string;
   href?: string;
+  draft?: boolean;
 };
 
 export const areas: Area[] = [
@@ -138,6 +139,7 @@ export const projects: Project[] = [
     href: "https://redi-summit-2026-six.vercel.app",
   },
   {
+    draft: true,
     name: "REDI NGO",
     repo: "redi-ngo-site",
     area: "Social",
@@ -228,6 +230,7 @@ export const projects: Project[] = [
     image: photos.racks,
   },
   {
+    draft: true,
     name: "Glow Up Studio",
     repo: "glow-up-studio",
     area: "Platforme",
@@ -235,6 +238,7 @@ export const projects: Project[] = [
     image: photos.ops,
   },
   {
+    draft: true,
     name: "Shine Bright",
     repo: "dashboard-shine-bright",
     area: "Platforme",
