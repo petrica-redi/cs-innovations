@@ -30,7 +30,7 @@ export const featured: Project[] = [
       "Educație pentru sănătate pentru familii, inclusiv din comunitățile rome, și un spațiu de lucru pentru mediatori și cadre medicale: cereri de ajutor, pacienți, programări și urmărirea cazurilor. Familiile pot fotografia o rețetă și primesc explicația în cuvinte simple. Aplicația este disponibilă în română, engleză, albaneză și italiană.",
     credit: "Petrică Dulgheru",
     href: "https://redi-health.vercel.app/ro/demo",
-    domain: "redi.healthcare",
+    domain: "redi-health.vercel.app",
     screen: "/screens/redi-health-staff.jpg",
   },
   {
