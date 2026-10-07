@@ -14,9 +14,11 @@ export default function ProiectePage() {
       <h1 className="text-4xl">Proiecte</h1>
       <p className="mt-4 max-w-2xl text-lg text-ink-soft">
         {projects.length} depozite din contul GitHub, în afară de tutorialul gol al
-        aplicației desktop. Unele sunt demonstrații, altele instrumente interne. Lista nu
-        este un registru de contracte. Depozitele rămân private; unde există o adresă deja
-        publică, ea este legată.
+        aplicației desktop. Pentru o achiziție de sistem informatic, cele mai apropiate
+        sunt SISCI, instrumentele de chimie, harta Sentinel și platformele de sănătate.
+        Unele sunt demonstrații, altele instrumente interne. Lista nu este un registru de
+        contracte. Depozitele rămân private; unde există o adresă deja publică, ea este
+        legată.
       </p>
       <div className="mt-8">
         <ProjectGrid />

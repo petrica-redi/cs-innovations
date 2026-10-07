@@ -1,24 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
+import { company, competitions, delivery } from "@/lib/company";
 import { projects } from "@/lib/projects";
 
 const frames = [
   {
-    src: "/photos/lab-screen.jpg",
-    alt: "Masă de laborator cu un ecran pe care se vede un model molecular",
-    label: "Chimie",
-    href: "/servicii#chimie",
-  },
-  {
     src: "/photos/community-desk.jpg",
-    alt: "Birou de comunitate, cu un laptop deschis pe un dosar digital",
-    label: "Social",
+    alt: "Birou cu un laptop deschis pe o listă de dosare",
+    label: "Dosar și plan",
+    text: "Evaluare, plan, monitorizare și roluri diferite pentru teren și pentru supervizare.",
     href: "/servicii#social",
   },
   {
+    src: "/photos/map-wall.jpg",
+    alt: "Ecran mare cu o hartă de sistem",
+    label: "Hartă și senzori",
+    text: "Teritoriu, stații și citiri, afișate fără a amesteca datele personale.",
+    href: "/proiecte",
+  },
+  {
+    src: "/photos/lab-screen.jpg",
+    alt: "Laborator cu un model molecular pe ecran",
+    label: "Chimie",
+    text: "Versiuni de formule, loturi și cine a schimbat un pas. Fără rețete publicate.",
+    href: "/servicii#chimie",
+  },
+  {
     src: "/photos/ai-screen.jpg",
-    alt: "Ecran întunecat cu un panou de asistență lângă un document",
-    label: "Inteligență artificială",
+    alt: "Monitor cu un panou de asistență lângă un document",
+    label: "Asistență",
+    text: "Un model ajută la căutare și la o primă redactare. Omul confirmă.",
     href: "/servicii#ai",
   },
 ];
@@ -27,90 +38,138 @@ export default function Home() {
   return (
     <main className="flex-1">
       <section>
-        <div className="relative h-[72vh] min-h-[420px] bg-night">
+        <div className="relative h-[58vh] min-h-[380px] bg-night">
           <Image
             src="/photos/ops-wall.jpg"
             alt="Sală de lucru cu un perete de monitoare pe care rulează sisteme"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[center_35%]"
+            className="object-cover object-[center_30%]"
           />
         </div>
+        <div className="border-b border-line bg-night text-paper">
+          <dl className="mx-auto grid max-w-6xl gap-4 px-5 py-4 text-sm sm:grid-cols-4">
+            <div>
+              <dt className="text-paper/60">Firmă</dt>
+              <dd>{company.legalName}</dd>
+            </div>
+            <div>
+              <dt className="text-paper/60">CUI</dt>
+              <dd>{company.cui}</dd>
+            </div>
+            <div>
+              <dt className="text-paper/60">CAEN</dt>
+              <dd>
+                {company.caen} · {company.caenLabel}
+              </dd>
+            </div>
+            <div>
+              <dt className="text-paper/60">Din</dt>
+              <dd>{company.founded}, Blejești, Teleorman</dd>
+            </div>
+          </dl>
+        </div>
         <div className="mx-auto max-w-6xl px-5 py-10">
-          <p className="text-sm tracking-wide text-copper">CS INNOVATIONS SOLUTIONS SRL</p>
-          <h1 className="mt-3 max-w-3xl text-4xl leading-tight text-ink sm:text-6xl">
-            Sisteme pe care le poți deschide.
+          <p className="text-sm tracking-wide text-copper">Sisteme pentru instituții</p>
+          <h1 className="mt-3 max-w-3xl text-4xl leading-tight sm:text-5xl">
+            Construim sistemul pe care o autoritate îl poate recepționa.
           </h1>
-          <p className="mt-4 max-w-xl text-lg text-ink-soft">
-            Dezvoltăm platforme. Inteligența artificială asistă munca. Chimia și serviciile
-            sociale au fiecare instrumentele lor.
+          <p className="mt-4 max-w-2xl text-lg leading-8 text-ink-soft">
+            Analiză, aplicație, rapoarte, hartă, lucru pe teren și suport. Inteligența
+            artificială asistă. Chimia și serviciile sociale rămân domenii în care am
+            construit deja.
           </p>
-          <p className="mt-6">
+          <p className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/pentru-autoritati"
+              className="inline-block bg-ink px-4 py-2 text-sm text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+            >
+              Ce primește autoritatea
+            </Link>
             <Link
               href="/proiecte"
-              className="inline-block border border-ink px-4 py-2 text-sm text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+              className="inline-block border border-ink px-4 py-2 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
             >
-              {projects.length} proiecte din GitHub
+              {projects.length} sisteme
             </Link>
           </p>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-4 px-5 py-8 sm:grid-cols-3" aria-label="Direcții">
+      <section className="mx-auto grid max-w-6xl gap-4 px-5 pb-4 sm:grid-cols-2" aria-label="Ce construim">
         {frames.map((frame) => (
           <Link
-            key={frame.href}
+            key={frame.href + frame.label}
             href={frame.href}
-            className="group relative block aspect-[4/3] overflow-hidden bg-night focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+            className="group grid overflow-hidden border border-line bg-paper sm:grid-cols-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
           >
-            <Image
-              src={frame.src}
-              alt={frame.alt}
-              fill
-              sizes="(min-width: 640px) 33vw, 100vw"
-              className="object-cover transition duration-300 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            />
-            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-night/90 to-transparent p-4 font-serif text-2xl text-paper">
-              {frame.label}
-            </span>
+            <div className="relative aspect-[4/3] bg-night">
+              <Image
+                src={frame.src}
+                alt={frame.alt}
+                fill
+                sizes="(min-width: 640px) 25vw, 100vw"
+                className="object-cover transition duration-300 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+              />
+            </div>
+            <div className="p-5">
+              <h2 className="font-serif text-2xl">{frame.label}</h2>
+              <p className="mt-2 text-sm leading-6 text-ink-soft">{frame.text}</p>
+            </div>
           </Link>
         ))}
       </section>
 
-      <section className="mx-auto grid max-w-6xl items-center gap-8 px-5 py-8 lg:grid-cols-2">
-        <div className="relative aspect-video bg-night">
-          <Image
-            src="/photos/map-wall.jpg"
-            alt="Ecran mare cu o hartă de sistem, fără nume de localități lizibile"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover"
-          />
-        </div>
-        <div>
-          <h2 className="text-3xl">De la ecran la predare</h2>
-          <p className="mt-4 leading-7 text-ink-soft">
-            Un sistem se vede devreme, pe date de probă. Predarea include codul, modul de
-            instalare și un manual în limba română. Datele de lucru rămân la organizația
-            care le deține.
-          </p>
-          <p className="mt-4">
-            <Link
-              href="/servicii"
-              className="text-ink underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
-            >
-              Cum lucrăm
-            </Link>
-          </p>
+      <section className="mx-auto max-w-6xl px-5 py-12" aria-labelledby="livrare">
+        <h2 id="livrare" className="text-3xl">
+          Cum se predă
+        </h2>
+        <ol className="mt-6 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-3">
+          {delivery.map(([title, text], index) => (
+            <li key={title} className="bg-paper p-5">
+              <p className="text-sm text-copper">{String(index + 1).padStart(2, "0")}</p>
+              <h3 className="mt-2 font-serif text-xl">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-ink-soft">{text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="border-y border-line bg-white/40">
+        <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 lg:grid-cols-[1fr_1.4fr]">
+          <div>
+            <h2 className="text-3xl">În competițiile EIT</h2>
+            <p className="mt-4 leading-7 text-ink-soft">
+              Suntem înscriși la două competiții ale Institutului European de Inovare și
+              Tehnologie. Una este despre materii prime. Cealaltă este despre tehnologie
+              digitală. Înscrierea arată direcția de lucru. Nu este un contract și nu ține
+              loc de proces-verbal de recepție.
+            </p>
+          </div>
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {competitions.map((item) => (
+              <li key={item.name} className="border border-line p-5">
+                <h3 className="font-serif text-2xl">{item.name}</h3>
+                <p className="mt-2 text-sm leading-6 text-ink-soft">{item.text}</p>
+                <a
+                  href={item.href}
+                  className="mt-3 inline-block text-sm underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
+                  rel="noreferrer"
+                >
+                  Pagina competiției
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 pb-16">
-        <div className="relative aspect-[21/9] bg-night">
+      <section className="mx-auto max-w-6xl px-5 py-12">
+        <div className="relative aspect-[21/9] min-h-56 bg-night">
           <Image
             src="/photos/racks.jpg"
-            alt="Culoar de rack-uri, cu lumini de stare și cabluri ordonate"
+            alt="Culoar de rack-uri"
             fill
             sizes="100vw"
             className="object-cover"

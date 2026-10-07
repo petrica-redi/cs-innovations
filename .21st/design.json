@@ -70,7 +70,11 @@
   },
   "decisions": [
     {
-      "fact": "Photo-led editorial layout: full-bleed system photography, night header, paper page, copper links. Chosen because the site should show working systems, not a text brochure.",
+      "fact": "Photo-led editorial layout: full-bleed system photography, night header, paper page, copper links.",
+      "source": "user request 2026-10-07"
+    },
+    {
+      "fact": "A contracting-authority page states deliverables in caiet language. EIT RawMaterials and 28DIGITAL are named as competitions entered, not as prizes or contracts.",
       "source": "user request 2026-10-07"
     }
   ],

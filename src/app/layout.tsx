@@ -18,7 +18,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 const description =
-  "CS INNOVATIONS SOLUTIONS SRL dezvoltă aplicații și platforme, inclusiv cu inteligență artificială, și lucrează pe inovație în chimie și inovație socială.";
+  "CS INNOVATIONS SOLUTIONS SRL construiește sisteme informatice pentru instituții: dosar, rapoarte, hartă, teren și suport. Înscrisă în competițiile EIT RawMaterials și 28DIGITAL.";
 
 export const metadata: Metadata = {
   title: {

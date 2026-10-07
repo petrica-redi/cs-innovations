@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { company } from "@/lib/company";
+import { company, competitions } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Despre",
@@ -32,6 +32,10 @@ export default function DesprePage() {
           sistem are nevoie de mai multe dintre ele.
         </p>
         <p>
+          Suntem înscriși în competițiile {competitions.map((item) => item.name).join(" și ")}.
+          Participarea nu este un premiu și nu este un contract public.
+        </p>
+        <p>
           Site-ul descrie ce știm să facem. Nu listează contracte, premii sau clienți
           care nu sunt publicați de firmă.
         </p>
@@ -48,6 +52,12 @@ export default function DesprePage() {
         <div>
           <dt className="text-ink-soft">Registrul comerțului</dt>
           <dd className="mt-1 text-ink">{company.tradeRegister}</dd>
+        </div>
+        <div>
+          <dt className="text-ink-soft">CAEN</dt>
+          <dd className="mt-1 text-ink">
+            {company.caen} — {company.caenLabel}
+          </dd>
         </div>
         <div>
           <dt className="text-ink-soft">Sediu</dt>
