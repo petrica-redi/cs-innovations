@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PageHead } from "@/components/PageHead";
 import { Screen } from "@/components/Screen";
 
 export const metadata: Metadata = {
   title: "Pentru autorități contractante",
   description:
     "Ce primește o autoritate la finalul unui contract de platformă informatică cu CS Innovations, cu exemplul SISCI.",
+  alternates: { canonical: "/pentru-autoritati" },
 };
 
 const items = [
@@ -19,52 +21,49 @@ const items = [
 
 export default function AutoritatiPage() {
   return (
-    <main className="mx-auto w-full max-w-[1180px] flex-1 px-5 py-16">
-      <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div>
-          <h1 className="font-serif text-[2.6rem] leading-[1.1] md:text-5xl">Pentru autorități contractante</h1>
-          <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-ink-soft">
-            Pagina aceasta este pentru autoritățile care pregătesc achiziția unei platforme informatice.
-            Mai jos descriem ce primiți la finalul unui contract cu noi. Exemplul concret este SISCI,
-            platforma noastră de management de caz pentru servicii comunitare integrate, pe care o puteți
-            încerca în versiunea demonstrativă, cu date de test.
-          </p>
-          <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <a
-              href="https://sisci.vercel.app"
-              rel="noreferrer"
-              className="underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
-            >
-              Deschide SISCI ↗
-            </a>
-            <Link
-              href="/despre#date"
-              className="underline decoration-copper underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-copper"
-            >
-              Datele firmei și sediul
-            </Link>
-          </p>
-        </div>
-        <Screen
-          src="/screens/sisci-case.jpg"
-          domain="sisci.vercel.app"
-          alt="Dosarul unui beneficiar în SISCI, cu anexele 1–7"
-          priority
-        />
-      </div>
+    <main className="flex-1">
+      <PageHead
+        label="Achiziții publice"
+        title="Pentru autorități contractante"
+        aside={
+          <Screen
+            src="/screens/sisci-case.jpg"
+            domain="sisci.vercel.app"
+            alt="Dosarul unui beneficiar în SISCI, cu anexele 1–7"
+            priority
+            dark
+          />
+        }
+      >
+        <p>
+          Pagina aceasta este pentru autoritățile care pregătesc achiziția unei platforme informatice. Exemplul concret este
+          SISCI, platforma noastră de management de caz pentru servicii comunitare integrate, pe care o puteți încerca în
+          versiunea demonstrativă, cu date de test.
+        </p>
+        <p className="mt-6 flex flex-wrap gap-3 text-sm">
+          <a href="https://sisci.vercel.app" rel="noreferrer" className="focus-ring rounded-[4px] bg-flame px-5 py-3 font-medium text-white hover:bg-[#6b50ff]">
+            Deschide SISCI ↗
+          </a>
+          <Link href="/despre#date" className="focus-ring rounded-[4px] border border-white/25 px-5 py-3 font-medium text-white hover:border-white/60">
+            Datele firmei
+          </Link>
+        </p>
+      </PageHead>
 
-      <h2 className="mt-20 font-serif text-3xl">Ce primiți</h2>
-      <ol className="mt-8 grid gap-x-12 md:grid-cols-2">
-        {items.map(([title, text], index) => (
-          <li key={title} className="grid grid-cols-[2.5rem_1fr] gap-4 border-t border-line py-6">
-            <span className="font-serif text-2xl text-copper">{index + 1}</span>
-            <div>
-              <h3 className="font-serif text-xl">{title}</h3>
-              <p className="mt-2 leading-relaxed text-ink-soft">{text}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <section className="mx-auto max-w-[1200px] px-5 py-16" aria-labelledby="primiti">
+        <h2 id="primiti" className="text-3xl font-semibold">
+          Ce primiți
+        </h2>
+        <ol className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {items.map(([title, text], index) => (
+            <li key={title} className="rounded-md border border-line bg-surface p-6">
+              <p className="font-mono text-xs text-flame">{String(index + 1).padStart(2, "0")}</p>
+              <h3 className="mt-3 text-lg font-semibold">{title}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
     </main>
   );
 }

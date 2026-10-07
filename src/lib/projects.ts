@@ -12,6 +12,17 @@ export type Project = {
 
 export const areas: Area[] = ["Social", "Sănătate", "Chimie", "Platforme"];
 
+export const areaSymbol: Record<Area, string> = {
+  Social: "So",
+  Sănătate: "Sn",
+  Chimie: "Ch",
+  Platforme: "Pf",
+};
+
+export function countByArea(area: Area) {
+  return [...featured, ...others].filter((p) => p.area === area).length;
+}
+
 export const featured: Project[] = [
   {
     name: "SISCI",

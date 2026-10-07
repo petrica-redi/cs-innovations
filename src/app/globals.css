@@ -1,33 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f3efe6;
-  --ink: #141311;
-  --ink-soft: #5c564c;
-  --line: #ddd4c6;
-  --copper: #c4623a;
-  --night: #10100e;
+  --bg: #eef1f5;
+  --surface: #ffffff;
+  --ink: #0b1220;
+  --muted: #4a5466;
+  --line: #d5dbe5;
+  --flame: #5a3cf0;
+  --flame-soft: #e7e2ff;
+  --night: #080d18;
 }
 
 @theme inline {
-  --color-paper: var(--paper);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
   --color-ink: var(--ink);
-  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
   --color-line: var(--line);
-  --color-copper: var(--copper);
+  --color-flame: var(--flame);
+  --color-flame-soft: var(--flame-soft);
   --color-night: var(--night);
-  --font-sans: var(--font-source-sans);
-  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
 }
 
 body {
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-source-sans), "Source Sans 3", sans-serif;
+  font-family: var(--font-plex-sans), "IBM Plex Sans", system-ui, sans-serif;
 }
 
 h1,
 h2,
-.font-serif {
-  font-family: var(--font-source-serif), "Source Serif 4", serif;
+h3 {
+  letter-spacing: -0.02em;
+}
+
+.grid-paper {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.grid-paper-light {
+  background-image:
+    linear-gradient(to right, rgb(11 18 32 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(11 18 32 / 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--flame);
+  outline-offset: 3px;
 }
