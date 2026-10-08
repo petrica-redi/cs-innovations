@@ -19,7 +19,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Principal" className="hidden items-center gap-1 text-sm md:flex">
+        <nav aria-label="Principal" className="hidden items-center gap-1 text-sm lg:flex">
           {nav.map((item) => {
             const current = path === item.href;
             return (
@@ -37,7 +37,7 @@ export function Header() {
           })}
         </nav>
 
-        <details key={path} className="group relative md:hidden">
+        <details key={path} className="group relative lg:hidden">
           <summary className="focus-ring flex cursor-pointer list-none items-center gap-2 rounded-[4px] border border-white/20 px-3 py-2 text-sm [&::-webkit-details-marker]:hidden">
             Meniu
             <span aria-hidden="true" className="font-mono text-xs transition-transform group-open:rotate-45">

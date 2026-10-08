@@ -1,5 +1,5 @@
-// Static company site: no LLM calls, jobs, email, or database, so observability,
-// queues, transactional mail, and error-tracking clients are omitted on purpose.
+// Company site. The data room stores files in private blob storage.
+// There are no LLM calls, jobs, email, or a database, so those clients are omitted.
 export const company = {
   brand: "CS Innovations",
   legalName: "CS INNOVATIONS SOLUTIONS SRL",
@@ -24,6 +24,7 @@ export const nav = [
   { href: "/pentru-autoritati", label: "Pentru autorități" },
   { href: "/despre", label: "Despre noi" },
   { href: "/contact", label: "Contact" },
+  { href: "/camera-de-date", label: "Documente" },
 ] as const;
 
 export const programmes = [

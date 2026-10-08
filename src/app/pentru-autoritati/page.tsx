@@ -38,7 +38,11 @@ export default function AutoritatiPage() {
         <p>
           Pagina aceasta este pentru autoritățile care pregătesc achiziția unei platforme informatice. Exemplul concret este
           SISCI, platforma noastră de management de caz pentru servicii comunitare integrate, pe care o puteți încerca în
-          versiunea demonstrativă, cu date de test.
+          versiunea demonstrativă, cu date de test. Documentele procedurii se transmit prin{" "}
+          <Link href="/camera-de-date" className="text-white underline decoration-[#a996ff] underline-offset-4">
+            camera de date
+          </Link>
+          : linkul și codul de acces pleacă pe canale separate.
         </p>
         <p className="mt-6 flex flex-wrap gap-3 text-sm">
           <a href="https://sisci.vercel.app" rel="noreferrer" className="focus-ring rounded-[4px] bg-flame px-5 py-3 font-medium text-white hover:bg-[#6b50ff]">
