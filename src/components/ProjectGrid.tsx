@@ -76,7 +76,22 @@ function ProjectGridInner() {
                   <h2 className="text-xl font-semibold group-hover:text-flame">{project.name}</h2>
                   <span className="font-mono text-xs text-muted">{project.area}</span>
                 </div>
-                <p className="mt-2 flex-1 px-1 pb-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
+                <p className="mt-2 flex-1 px-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
+                {project.ai ? (
+                  <p className="mx-1 mt-4 rounded-md border border-signal/40 bg-[#ecfdf9] px-3 py-2 text-sm text-[#0f5f56]">
+                    <span className="font-mono text-xs">AI · </span>
+                    {project.ai}
+                  </p>
+                ) : null}
+                {project.tags ? (
+                  <ul className="mt-4 flex flex-wrap gap-2 px-1 pb-1">
+                    {project.tags.map((tag) => (
+                      <li key={tag} className="rounded-full border border-line px-2.5 py-0.5 font-mono text-[11px] text-muted">
+                        {tag}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </a>
             </li>
           ))}
@@ -89,7 +104,7 @@ function ProjectGridInner() {
             Alte lucrări
           </h2>
           <p className="mt-2 max-w-[62ch] text-sm text-muted">
-            Aplicații mai mici, machete și panouri interne. Cele fără link nu au o versiune publică.
+            Aplicații și panouri interne. Cele fără link nu au o versiune publică.
           </p>
           <ul className="mt-6 overflow-hidden rounded-md border border-line bg-surface">
             {rest.map((project) => (

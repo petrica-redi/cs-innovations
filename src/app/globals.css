@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #eef1f5;
+  --bg: #f4f6fa;
   --surface: #ffffff;
-  --ink: #0b1220;
-  --muted: #4a5466;
-  --line: #d5dbe5;
-  --flame: #0f4c81;
-  --flame-soft: #e7eef6;
-  --night: #071525;
+  --ink: #0a1020;
+  --muted: #4b5568;
+  --line: #dde2ea;
+  --flame: #2563eb;
+  --flame-soft: #e8efff;
+  --signal: #2dd4bf;
+  --night: #060b16;
+  --night-2: #0c1426;
 }
 
 @theme inline {
@@ -19,7 +21,9 @@
   --color-line: var(--line);
   --color-flame: var(--flame);
   --color-flame-soft: var(--flame-soft);
+  --color-signal: var(--signal);
   --color-night: var(--night);
+  --color-night-2: var(--night-2);
   --font-sans: var(--font-plex-sans);
   --font-mono: var(--font-plex-mono);
 }
@@ -33,24 +37,53 @@ body {
 h1,
 h2,
 h3 {
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .grid-paper {
   background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
+    radial-gradient(ellipse 80% 60% at 70% 0%, rgb(37 99 235 / 0.22), transparent 70%),
+    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    40px 40px,
+    40px 40px;
 }
 
 .grid-paper-light {
   background-image:
-    linear-gradient(to right, rgb(11 18 32 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(11 18 32 / 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+    linear-gradient(to right, rgb(10 16 32 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(10 16 32 / 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .focus-ring:focus-visible {
   outline: 2px solid var(--flame);
   outline-offset: 3px;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.live-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot {
+    animation: none;
+  }
 }

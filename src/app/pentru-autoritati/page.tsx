@@ -16,6 +16,7 @@ const items = [
   ["Registre, rapoarte și liste", "Registrele și rapoartele cerute prin caietul de sarcini se exportă în Excel. Listele de localități, categorii și furnizori le modifică administratorul instituției, fără să aștepte o versiune nouă de la noi."],
   ["Hartă și lucru pe teren", "Harta și portalul public arată doar cifre agregate, fără nume și fără CNP. Pe teren, aplicația merge și fără semnal și se sincronizează când revine conexiunea."],
   ["Date și integrări", "Locul găzduirii, copiile de siguranță și jurnalul acțiunilor urmează cerințele din caietul de sarcini. Legăturile cu alte sisteme le facem prin API, pe specificația și mediul de test primite de la instituție."],
+  ["AI cu aprobare umană", "Unde caietul de sarcini cere asistență AI, modelul propune, iar funcționarul aprobă. Fiecare propunere rămâne în jurnal, cu modelul și versiunea folosite, iar datele sunt procesate în UE."],
   ["Predare și recepție", "Pilot, instruire, cod sursă, manual în limba română și scenariile de recepție. Drepturile asupra codului creat prin contract se transferă în condițiile stabilite de caietul de sarcini."],
 ];
 

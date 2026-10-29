@@ -5,7 +5,7 @@ import { ProjectGrid } from "@/components/ProjectGrid";
 export const metadata: Metadata = {
   title: "Proiecte",
   description:
-    "Platformele construite de CS Innovations: SISCI, REDI Health, REDI Business, REDI NGO, Chemistry tools, Sentinel, Scriva.",
+    "Platforme și sisteme AI construite de CS Innovations: SISCI, REDI Health, Scriva, Sentinel, REDI Business, REDI NGO, Chemistry tools.",
   alternates: { canonical: "/proiecte" },
 };
 
@@ -13,10 +13,10 @@ export default function ProiectePage() {
   return (
     <main className="flex-1">
       <PageHead label="Portofoliu" title="Proiecte">
-        Platformele construite de CS Innovations, grupate pe domenii. Imaginile sunt capturi ale
-        versiunilor online; un clic pe card deschide platforma.
+        Sisteme construite de CS Innovations pentru sectorul public și social, sănătate, date și cercetare. Imaginile sunt
+        capturi ale versiunilor online; un clic pe card deschide platforma.
       </PageHead>
-      <div className="mx-auto w-full max-w-[1200px] px-5 py-12">
+      <div className="mx-auto w-full max-w-[1200px] px-5 py-14">
         <ProjectGrid />
       </div>
     </main>

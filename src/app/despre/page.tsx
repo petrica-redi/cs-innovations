@@ -4,7 +4,7 @@ import { company, programmes } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Despre noi",
-  description: `${company.legalName}, firmă de inginerie cu biroul în București, înființată în ${company.founded}.`,
+  description: `${company.legalName}, firmă de dezvoltare software și orchestrare AI cu birou în București, înființată în ${company.founded}.`,
   alternates: { canonical: "/despre" },
 };
 
@@ -19,7 +19,7 @@ const facts = [
 export default function DesprePage() {
   return (
     <main className="flex-1">
-      <PageHead label="Firma" title="Despre noi">
+      <PageHead label="Companie" title="Despre CS Innovations">
         {company.legalName}, cunoscută sub numele {company.brand}, a fost înființată în {company.founded}. Biroul este la
         Spaces Unirii View, în București.
       </PageHead>
@@ -28,13 +28,18 @@ export default function DesprePage() {
         <div className="max-w-[62ch] space-y-5 text-[17px] leading-relaxed text-muted">
           <h2 className="text-3xl font-semibold text-ink">Ce construim</h2>
           <p>
-            Lucrăm pe trei direcții: platforme informatice pentru instituții, proiecte de inovare în chimie și instrumente
-            pentru servicii sociale și de sănătate. O aplicație pornește de la procedura pe care echipa o aplică deja și se
-            predă cu cod sursă, instruire și manual în limba română.
+            CS Innovations este o firmă de dezvoltare software și orchestrare AI. Construim platforme pentru sectorul public
+            și social, sănătate și cercetare, iar acolo unde un model AI aduce un câștig îl integrăm într-un flux cu pași
+            verificabili și aprobare umană.
           </p>
           <p>
-            Printre sistemele realizate sunt SISCI, REDI Health, REDI Business, Scriva, Chemistry tools și Sentinel.
-            Site-ul redi-ngo.eu a fost realizat împreună cu echipa REDI.
+            Proiectele pornesc de la procedura pe care echipa clientului o aplică deja și se predau cu cod sursă, instruire și
+            manual în limba română. Printre sistemele realizate sunt SISCI, REDI Health, Scriva, Sentinel, REDI Business și
+            Chemistry tools. Site-ul redi-ngo.eu a fost realizat împreună cu echipa REDI.
+          </p>
+          <p>
+            Rădăcinile firmei sunt în inginerie și chimie, de aici selecția în incubatorul EIT RawMaterials. Pentru partea
+            digitală, firma a fost selectată în acceleratorul 28DIGITAL.
           </p>
         </div>
         <div className="space-y-4">

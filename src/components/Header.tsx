@@ -9,13 +9,13 @@ export function Header() {
   const path = usePathname();
 
   return (
-    <header className="sticky top-0 z-30 border-b border-white/10 bg-night/95 text-white backdrop-blur supports-[backdrop-filter]:bg-night/85">
+    <header className="sticky top-0 z-30 border-b border-white/10 bg-night/95 text-white backdrop-blur supports-[backdrop-filter]:bg-night/80">
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-6 px-5">
         <Link href="/" className="focus-ring flex items-center gap-3 rounded-sm">
           <ElementMark />
           <span className="leading-tight">
             <span className="block text-[15px] font-semibold">{company.brand}</span>
-            <span className="block font-mono text-[11px] text-white/55">platforme informatice</span>
+            <span className="block font-mono text-[11px] text-white/55">software · orchestrare AI</span>
           </span>
         </Link>
 
@@ -35,6 +35,12 @@ export function Header() {
               </Link>
             );
           })}
+          <Link
+            href="/contact"
+            className="focus-ring ml-3 rounded-[4px] bg-flame px-4 py-2 font-medium text-white hover:bg-[#1d4ed8]"
+          >
+            Discutăm un proiect
+          </Link>
         </nav>
 
         <details key={path} className="group relative lg:hidden">
@@ -46,7 +52,7 @@ export function Header() {
           </summary>
           <nav
             aria-label="Principal (mobil)"
-            className="absolute right-0 mt-2 w-56 rounded-md border border-white/10 bg-night p-2 shadow-xl"
+            className="absolute right-0 mt-2 w-60 rounded-md border border-white/10 bg-night p-2 shadow-xl"
           >
             {nav.map((item) => (
               <Link

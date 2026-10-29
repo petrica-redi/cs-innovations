@@ -21,19 +21,19 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "CS Innovations proiectează platforme informatice pentru instituții, sănătate și laborator și lucrează la proiecte de chimie și de inovare socială. București, din 2017.";
+  "CS Innovations dezvoltă platforme software și sisteme AI orchestrate pentru sectorul public, sănătate și cercetare, cu validare, aprobare umană și date păstrate în UE. București, din 2017.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${company.brand} | Firmă de inginerie și platforme informatice`,
+    default: `${company.brand} | Dezvoltare software și orchestrare AI`,
     template: `%s | ${company.brand}`,
   },
   description,
   authors: [{ name: company.legalName }],
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${company.brand} | Firmă de inginerie și platforme informatice`,
+    title: `${company.brand} | Dezvoltare software și orchestrare AI`,
     description,
     locale: "ro_RO",
     type: "website",

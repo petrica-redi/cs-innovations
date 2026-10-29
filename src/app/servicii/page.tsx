@@ -1,94 +1,142 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AreaTile } from "@/components/AreaTile";
 import { PageHead } from "@/components/PageHead";
 import { Screen } from "@/components/Screen";
-import type { Area } from "@/lib/projects";
+import { standards } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Servicii",
-  description: "Platforme informatice, proiecte de inovare în chimie și instrumente pentru inovare socială.",
+  description:
+    "Dezvoltare de platforme software la comandă, orchestrare AI, date și integrări, cercetare și calcul științific. Securitate și conformitate în fiecare proiect.",
   alternates: { canonical: "/servicii" },
 };
 
-const sections: { id: string; area: Area; title: string; screen: string; domain: string; alt: string; paragraphs: string[] }[] = [
+const sections = [
   {
     id: "platforme",
-    area: "Platforme",
-    title: "Platforme informatice",
-    screen: "/screens/sentinel-map.jpg",
-    domain: "sentinel-cbrn.vercel.app",
-    alt: "Harta stațiilor de senzori din Sentinel",
-    paragraphs: [
-      "Proiectăm și construim aplicații web pentru instituții și echipe care țin evidența unor dosare, consultații sau măsurători. Pornim de la procedura pe care oamenii o aplică deja și o transformăm în conturi, ecrane și rapoarte, cu interfața în limba română.",
-      "Acolo unde ajută, folosim un model de limbaj care caută în documentele proiectului sau scrie o primă variantă de text. Decizia rămâne la persoana care semnează, iar datele rămân la instituție. La final predăm codul și manualul, ca echipa să poată continua și fără noi.",
-    ],
+    label: "Dezvoltare software",
+    title: "Platforme software la comandă",
+    screen: "/screens/sisci-case.jpg",
+    domain: "sisci.vercel.app",
+    alt: "Dosarul unui beneficiar în SISCI, cu pașii de la evaluare la închidere",
+    text: "Aplicații web pentru instituții și echipe care țin dosare, programări, registre și rapoarte. Pornim de la procedura pe care oamenii o aplică deja și o transformăm în roluri, ecrane, fluxuri de aprobare și exporturi.",
+    points: ["Analiză de proces și specificații", "Arhitectură, model de date și UX", "Roluri, permisiuni și jurnal de acțiuni", "Rapoarte, exporturi și documente tipărite", "Lucru pe teren, și fără semnal", "Mentenanță și dezvoltare continuă"],
+    href: "/proiecte?domeniu=Public%20%C8%99i%20social",
   },
   {
-    id: "chimie",
-    area: "Chimie",
-    title: "Chimie",
+    id: "ai",
+    label: "Orchestrare AI",
+    title: "Fluxuri AI în pași controlați",
+    screen: "/screens/redi-health-staff.jpg",
+    domain: "redi-health.vercel.app",
+    alt: "Spațiul de lucru REDI Health, cu lista cererilor de ajutor medical",
+    text: "Punem modele de limbaj, vorbire și imagine în fluxuri cu intrări clare, ieșiri validate și aprobare umană. Fiecare apel este urmărit, iar calitatea se măsoară pe cazuri de test înainte de fiecare schimbare.",
+    points: ["Transcriere și structurarea notelor", "Căutare în documentele instituției, cu sursă", "Citirea imaginilor și a documentelor scanate", "Rutare între modele după sarcină și cost", "Evaluare, trasare și limite de cost", "Procesare în regiuni din UE"],
+    href: "/orchestrare-ai",
+  },
+  {
+    id: "date",
+    label: "Date și integrări",
+    title: "Date, hărți și integrări",
+    screen: "/screens/sentinel-map.jpg",
+    domain: "sentinel-cbrn.vercel.app",
+    alt: "Harta României din Sentinel, cu stațiile de măsurare",
+    text: "Legăm platforma de sistemele existente prin API, importăm date istorice și publicăm hărți și tablouri de bord cu cifre agregate. Sentinel, de exemplu, adună date publice despre aer și radiație și dă alertă la depășirea pragurilor.",
+    points: ["Integrări API pe specificația instituției", "Importuri și migrare de date", "Hărți și tablouri de bord", "Alerte pe praguri"],
+    href: "/proiecte?domeniu=Date%20%C8%99i%20cercetare",
+  },
+  {
+    id: "cercetare",
+    label: "Cercetare",
+    title: "Cercetare și calcul științific",
     screen: "/screens/chemistry-tools.jpg",
     domain: "chemistry-tools.vercel.app",
     alt: "Prima pagină Chemistry tools, cu cele șase simulatoare",
-    paragraphs: [
-      "Lucrăm la proiecte de inovare în chimie și construim programe care ușurează munca de laborator.",
-      "Chemistry tools reunește șase simulatoare, de la orbitali atomici la titrare. Pentru o echipă de cercetare putem construi și evidența formulelor: ce versiune s-a folosit la fiecare lot și cine a modificat un pas al procedurii.",
-    ],
+    text: "Construim programe pentru laborator și cercetare, în special în chimie și materiale. Chemistry tools reunește șase simulatoare, de la orbitali atomici la titrare, iar pentru echipele de cercetare facem evidența formulelor, a loturilor și a versiunilor de procedură.",
+    points: ["Simulatoare și calcul științific", "Evidența formulelor și a loturilor", "Proiecte de inovare în chimie"],
+    href: "/proiecte?domeniu=Date%20%C8%99i%20cercetare",
   },
-  {
-    id: "social",
-    area: "Social",
-    title: "Inovare socială și sănătate",
-    screen: "/screens/redi-health-staff.jpg",
-    domain: "redi-health.vercel.app",
-    alt: "Lista cererilor de ajutor medical din spațiul de lucru REDI Health",
-    paragraphs: [
-      "Construim instrumente pentru echipele care lucrează direct cu oamenii dintr-o comunitate. SISCI urmărește cazul unui beneficiar de la prima evaluare până la închiderea dosarului, cu planul de intervenție și vizitele dintre ele.",
-      "REDI Business îi ajută pe antreprenorii romi din Balcani să învețe, să-și scrie planul de afaceri și să se pregătească pentru un credit. REDI Health dă mediatorilor și cadrelor medicale un loc unde țin cererile de ajutor, pacienții și programările.",
-    ],
-  },
+];
+
+const security = [
+  ["Date în UE", "Găzduire și procesare în regiuni din Uniunea Europeană."],
+  ["Acces pe roluri", "Fiecare utilizator vede și modifică doar ce îi permite rolul."],
+  ["Jurnal de audit", "Cine a făcut ce și când, pentru fiecare dosar și document."],
+  ["GDPR din proiectare", "Date minime, termene de păstrare și export la cerere."],
+  ["Copii de siguranță", "Frecvența și locul copiilor urmează cerințele contractului."],
+  ["Codul sursă al instituției", "Predăm codul, documentația și scenariile de recepție."],
 ];
 
 export default function ServiciiPage() {
   return (
     <main className="flex-1">
-      <PageHead label="Ce oferim" title="Servicii">
-        Lucrăm în trei domenii: platforme informatice, chimie și inovare socială.
+      <PageHead label="Servicii" title="Ce construim">
+        Platforme software la comandă, orchestrare AI, date și integrări, cercetare și calcul științific. Aceeași echipă
+        merge de la analiză până la operarea sistemului.
       </PageHead>
-      <nav aria-label="Secțiuni" className="border-b border-line bg-surface">
+      <nav aria-label="Secțiuni" className="sticky top-16 z-20 border-b border-line bg-surface/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1200px] flex-wrap gap-x-6 gap-y-2 px-5 py-4 font-mono text-sm">
           {sections.map((section) => (
             <a key={section.id} href={`#${section.id}`} className="focus-ring text-muted hover:text-flame">
-              {section.title}
+              {section.label}
             </a>
           ))}
+          <a href="#securitate" className="focus-ring text-muted hover:text-flame">
+            Securitate
+          </a>
         </div>
       </nav>
-      <div className="mx-auto max-w-[1200px] space-y-20 px-5 py-16">
+      <div className="mx-auto max-w-[1200px] space-y-24 px-5 py-20">
         {sections.map((section, index) => (
-          <section key={section.id} id={section.id} className="grid scroll-mt-24 items-center gap-10 lg:grid-cols-2">
+          <section key={section.id} id={section.id} className="grid scroll-mt-32 items-center gap-12 lg:grid-cols-2">
             <div className={index % 2 === 1 ? "lg:order-2" : ""}>
               <Screen src={section.screen} domain={section.domain} alt={section.alt} />
             </div>
             <div>
-              <AreaTile area={section.area} />
-              <h2 className="mt-5 text-3xl font-semibold">{section.title}</h2>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph} className="mt-4 max-w-[60ch] text-[17px] leading-relaxed text-muted">
-                  {paragraph}
-                </p>
-              ))}
-              <Link
-                href={`/proiecte?domeniu=${encodeURIComponent(section.area)}`}
-                className="focus-ring mt-6 inline-block font-mono text-sm text-flame hover:underline"
-              >
-                Vezi proiectele →
+              <p className="font-mono text-xs text-flame">{section.label}</p>
+              <h2 className="mt-3 text-3xl font-semibold md:text-4xl">{section.title}</h2>
+              <p className="mt-4 max-w-[60ch] text-[17px] leading-relaxed text-muted">{section.text}</p>
+              <ul className="mt-6 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+                {section.points.map((point) => (
+                  <li key={point} className="flex gap-2 text-[15px]">
+                    <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-flame" />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+              <Link href={section.href} className="focus-ring mt-7 inline-block font-mono text-sm text-flame hover:underline">
+                {section.id === "ai" ? "Arhitectura completă →" : "Proiecte din domeniu →"}
               </Link>
             </div>
           </section>
         ))}
       </div>
+
+      <section id="securitate" className="scroll-mt-32 bg-night text-white" aria-labelledby="securitate-titlu">
+        <div className="mx-auto max-w-[1200px] px-5 py-24">
+          <p className="font-mono text-xs text-signal">Securitate și conformitate</p>
+          <h2 id="securitate-titlu" className="mt-3 text-3xl font-semibold md:text-[2.75rem]">
+            Incluse în fiecare proiect
+          </h2>
+          <dl className="mt-12 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+            {security.map(([title, text]) => (
+              <div key={title} className="bg-night-2 p-7">
+                <dt className="text-lg font-semibold">{title}</dt>
+                <dd className="mt-2 text-[15px] leading-relaxed text-white/60">{text}</dd>
+              </div>
+            ))}
+          </dl>
+          <h3 className="mt-16 text-xl font-semibold">Practici de inginerie</h3>
+          <dl className="mt-6 grid gap-x-10 gap-y-5 md:grid-cols-2">
+            {standards.map(([title, text]) => (
+              <div key={title} className="border-t border-white/10 pt-4">
+                <dt className="font-medium">{title}</dt>
+                <dd className="mt-1 text-[15px] text-white/60">{text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
     </main>
   );
 }

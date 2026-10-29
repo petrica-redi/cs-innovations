@@ -1,19 +1,19 @@
 import Link from "next/link";
 import { ElementMark } from "@/components/ElementMark";
-import { company, nav, programmes } from "@/lib/company";
+import { company, dataRoomLink, nav, programmes } from "@/lib/company";
 
 export function Footer() {
   return (
     <footer className="mt-auto bg-night text-white">
-      <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-14 text-sm md:grid-cols-[1.3fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-[1200px] gap-10 px-5 py-14 text-sm md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
             <ElementMark />
             <p className="text-base font-semibold">{company.brand}</p>
           </div>
           <p className="mt-4 max-w-sm leading-relaxed text-white/65">
-            Firmă de inginerie în București, din {company.founded}. Proiectăm platforme informatice și lucrăm la
-            proiecte de chimie și inovare socială.
+            {company.tagline}. Construim platforme pentru sectorul public, sănătate și cercetare, cu birou în București, din{" "}
+            {company.founded}.
           </p>
         </div>
         <div>
@@ -28,7 +28,7 @@ export function Footer() {
         <div>
           <p className="font-mono text-xs text-white/45">Pagini</p>
           <nav aria-label="Subsol" className="mt-3 grid gap-1.5">
-            {nav.map((item) => (
+            {[...nav, dataRoomLink].map((item) => (
               <Link key={item.href} href={item.href} className="focus-ring w-fit text-white/80 hover:text-white">
                 {item.label}
               </Link>
