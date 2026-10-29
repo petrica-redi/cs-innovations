@@ -40,31 +40,35 @@ export default function AutoritatiPage() {
           Pagina aceasta este pentru autoritățile care pregătesc achiziția unei platforme informatice. Exemplul concret este
           SISCI, platforma noastră de management de caz pentru servicii comunitare integrate, pe care o puteți încerca în
           versiunea demonstrativă, cu date de test. Documentele procedurii se transmit prin{" "}
-          <Link href="/camera-de-date" className="text-ink underline decoration-flame underline-offset-4">
+          <Link href="/camera-de-date" className="text-white underline decoration-flame underline-offset-4">
             camera de date
           </Link>
           : linkul și codul de acces pleacă pe canale separate.
         </p>
-        <p className="mt-6 flex flex-wrap gap-3 text-sm">
-          <a href="https://sisci.vercel.app" rel="noreferrer" className="focus-ring rounded-full bg-ink px-5 py-3 font-medium text-white hover:bg-[#2a2a2e]">
-            Deschide SISCI ↗
+        <p className="mt-8 flex flex-wrap gap-4">
+          <a href="https://sisci.vercel.app" rel="noreferrer" className="btn focus-ring">
+            Deschide SISCI
           </a>
-          <Link href="/despre#date" className="focus-ring rounded-full border border-line bg-surface px-5 py-3 font-medium hover:border-ink">
+          <Link href="/despre#date" className="btn btn-line focus-ring">
             Datele firmei
           </Link>
         </p>
       </PageHead>
 
-      <section className="mx-auto max-w-[1200px] px-5 py-16" aria-labelledby="primiti">
-        <h2 id="primiti" className="text-3xl font-semibold">
+      <section className="mx-auto max-w-[1200px] px-5 py-24" aria-labelledby="primiti">
+        <p className="eyebrow">Contract de platformă informatică</p>
+        <h2 id="primiti" className="mt-3 text-[2rem] md:text-[2.5rem]">
           Ce primiți
         </h2>
-        <ol className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map(([title, text], index) => (
-            <li key={title} className="rounded-2xl border border-line bg-surface p-6">
-              <p className="font-mono text-xs text-flame">{String(index + 1).padStart(2, "0")}</p>
-              <h3 className="mt-3 text-lg font-semibold">{title}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{text}</p>
+            <li key={title} className="group relative overflow-hidden border border-line bg-white p-8 transition-shadow hover:shadow-[0_25px_50px_-20px_rgba(38,32,81,0.3)]">
+              <span aria-hidden="true" className="big-num big-num-light absolute top-4 right-5">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="relative text-[19px]">{title}</h3>
+              <p className="relative mt-3 text-[15px] leading-[1.75]">{text}</p>
+              <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-flame transition-transform group-hover:scale-x-100" />
             </li>
           ))}
         </ol>

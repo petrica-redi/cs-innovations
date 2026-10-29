@@ -41,8 +41,8 @@ const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
 
 const stroke: Record<Tone, string> = {
   plain: "rgba(255,255,255,0.55)",
-  core: "#6d86ff",
-  model: "#6d86ff",
+  core: "#43baff",
+  model: "#43baff",
   human: "#34d399",
   out: "rgba(255,255,255,0.55)",
 };
@@ -72,13 +72,13 @@ function NodeBox({ node }: { node: Node }) {
         y={node.y}
         width={node.w}
         height={node.h}
-        rx={core ? 16 : 11}
-        fill={core ? "#1a1f3d" : human ? "#0f2a22" : "#18181b"}
-        stroke={core ? "#6d86ff" : human ? "#34d399" : "rgba(255,255,255,0.12)"}
+        rx={core ? 4 : 2}
+        fill={core ? "#3a3270" : human ? "#163a3a" : "#2e2861"}
+        stroke={core ? "#43baff" : human ? "#34d399" : "rgba(255,255,255,0.12)"}
         strokeOpacity={core || human ? 0.7 : 1}
       />
       {core ? (
-        <circle cx={node.x + 22} cy={node.y + 26} r={4} fill="#6d86ff" className="live-dot" />
+        <circle cx={node.x + 22} cy={node.y + 26} r={4} fill="#43baff" className="live-dot" />
       ) : (
         <circle cx={node.x + 16} cy={node.y + node.h / 2} r={3} fill={stroke[node.tone]} />
       )}
@@ -105,8 +105,8 @@ function NodeBox({ node }: { node: Node }) {
         <g fontFamily="var(--font-geist-mono)" fontSize={10.5}>
           {["rutare", "limite", "urmărire"].map((tag, index) => (
             <g key={tag}>
-              <rect x={node.x + 22 + index * 56} y={node.y + 76} width={50} height={20} rx={10} fill="rgba(109,134,255,0.14)" />
-              <text x={node.x + 47 + index * 56} y={node.y + 90} fill="#aab8ff" textAnchor="middle">
+              <rect x={node.x + 22 + index * 56} y={node.y + 76} width={50} height={20} rx={2} fill="rgba(67,186,255,0.16)" />
+              <text x={node.x + 47 + index * 56} y={node.y + 90} fill="#9fdcff" textAnchor="middle">
                 {tag}
               </text>
             </g>
@@ -119,9 +119,7 @@ function NodeBox({ node }: { node: Node }) {
 
 export function OrchestrationGraph() {
   return (
-    <figure className="relative overflow-hidden rounded-2xl border border-white/10 bg-night text-white shadow-[0_50px_100px_-40px_rgba(12,12,13,0.6)]">
-      <div aria-hidden="true" className="dot-grid-dark absolute inset-0 opacity-60" />
-      <div aria-hidden="true" className="glow-cobalt absolute inset-x-0 top-0 h-2/3 opacity-60" />
+    <figure className="relative overflow-hidden bg-night text-white shadow-[0_40px_80px_-35px_rgba(38,32,81,0.7)]">
       <div className="relative flex items-center justify-between gap-4 border-b border-white/10 px-5 py-3">
         <span className="flex min-w-0 items-center gap-3 truncate font-mono text-xs text-white/55">
           <span className="hidden gap-1.5 sm:flex" aria-hidden="true">
@@ -144,7 +142,7 @@ export function OrchestrationGraph() {
             validare și aprobare umană, apoi este salvat în dosar și în jurnalul de audit.
           </title>
           {edges.map(([from, to, dir]) => (
-            <path key={`base-${from}-${to}`} d={path(from, to, dir)} fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={1.25} />
+            <path key={`base-${from}-${to}`} d={path(from, to, dir)} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth={1.25} />
           ))}
           {edges.map(([from, to, dir, tone], index) => (
             <path
@@ -171,7 +169,7 @@ export function OrchestrationGraph() {
       <figcaption className="relative flex flex-wrap items-center justify-between gap-3 border-t border-white/10 px-5 py-3 font-mono text-[11px] text-white/45">
         <span className="flex flex-wrap gap-4">
           <span className="flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-[#6d86ff]" /> model
+            <span className="size-1.5 rounded-full bg-flame" /> model
           </span>
           <span className="flex items-center gap-1.5">
             <span className="size-1.5 rounded-full bg-signal" /> om

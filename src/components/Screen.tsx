@@ -23,19 +23,19 @@ export function Screen({
 }: Props) {
   return (
     <figure
-      className={`overflow-hidden rounded-xl border ${
+      className={`overflow-hidden border ${
         dark
-          ? "border-white/10 bg-night-2 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)]"
-          : "border-black/[0.08] bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_30px_60px_-30px_rgba(12,12,13,0.35)]"
+          ? "border-white/10 bg-night-2 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.7)]"
+          : "border-black/[0.06] bg-surface shadow-[0_30px_60px_-30px_rgba(38,32,81,0.45)]"
       } ${className}`}
     >
-      <div className={`flex items-center gap-3 border-b px-3.5 py-2.5 ${dark ? "border-white/10" : "border-black/[0.06] bg-[#f7f7f6]"}`}>
+      <div className={`flex items-center gap-3 border-b px-3.5 py-2.5 ${dark ? "border-white/10" : "border-black/[0.06] bg-[#f3f3f7]"}`}>
         <span className="flex gap-1.5" aria-hidden="true">
           {[0, 1, 2].map((dot) => (
             <span key={dot} className={`size-2 rounded-full ${dark ? "bg-white/15" : "bg-black/10"}`} />
           ))}
         </span>
-        <span className={`mx-auto truncate rounded-md px-3 py-0.5 font-mono text-[11px] ${dark ? "bg-white/5 text-white/50" : "bg-black/[0.04] text-muted"}`}>
+        <span className={`mx-auto truncate px-3 py-0.5 font-mono text-[11px] ${dark ? "bg-white/5 text-white/50" : "bg-black/[0.04] text-muted"}`}>
           {domain}
         </span>
         <span className="w-[42px]" aria-hidden="true" />

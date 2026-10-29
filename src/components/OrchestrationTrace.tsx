@@ -9,7 +9,7 @@ const runSteps = [
 
 const kindStyle: Record<(typeof runSteps)[number]["kind"], string> = {
   intrare: "border-white/15 text-white/60",
-  model: "border-[#6d86ff]/50 text-[#aab8ff]",
+  model: "border-flame/50 text-flame",
   regulă: "border-white/15 text-white/60",
   om: "border-signal/50 text-signal",
   audit: "border-white/15 text-white/60",
@@ -18,7 +18,7 @@ const kindStyle: Record<(typeof runSteps)[number]["kind"], string> = {
 function Steps() {
   return (
     <ol className="relative px-5 py-4">
-      <span aria-hidden="true" className="absolute top-7 bottom-7 left-[33px] w-px bg-gradient-to-b from-[#6d86ff]/70 via-white/15 to-signal/70" />
+      <span aria-hidden="true" className="absolute top-7 bottom-7 left-[33px] w-px bg-gradient-to-b from-flame/70 via-white/15 to-signal/70" />
       {runSteps.map((step, index) => (
         <li key={step.title} className="relative grid grid-cols-[28px_1fr_auto] items-center gap-4 py-2.5">
           <span className="relative z-10 grid size-7 place-items-center rounded-full border border-white/15 bg-night font-mono text-[11px] text-white/70">
@@ -38,7 +38,7 @@ function Steps() {
 export function OrchestrationTrace({ bare = false }: { bare?: boolean }) {
   if (bare) return <Steps />;
   return (
-    <figure className="overflow-hidden rounded-2xl border border-white/10 bg-night text-white shadow-[0_50px_100px_-40px_rgba(12,12,13,0.6)]">
+    <figure className="overflow-hidden bg-night text-white">
       <div className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-3">
         <span className="font-mono text-xs text-white/55">flux / notă-clinică</span>
         <span className="flex items-center gap-2 font-mono text-[11px] text-signal">

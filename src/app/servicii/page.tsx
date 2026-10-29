@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHead } from "@/components/PageHead";
+import { Icon, type IconName } from "@/components/Icons";
 import { Screen } from "@/components/Screen";
+import { Shapes } from "@/components/Shapes";
 import { standards } from "@/lib/company";
 
 export const metadata: Metadata = {
@@ -67,6 +69,9 @@ const security = [
   ["Codul sursă al instituției", "Predăm codul, documentația și scenariile de recepție."],
 ];
 
+const icons: Record<string, IconName> = { platforme: "platform", ai: "ai", date: "data", cercetare: "research" };
+const securityIcons: IconName[] = ["cloud", "security", "audit", "test", "database", "code"];
+
 export default function ServiciiPage() {
   return (
     <main className="flex-1">
@@ -74,68 +79,98 @@ export default function ServiciiPage() {
         Platforme software la comandă, orchestrare AI, date și integrări, cercetare și calcul științific. Aceeași echipă
         merge de la analiză până la operarea sistemului.
       </PageHead>
-      <nav aria-label="Secțiuni" className="sticky top-16 z-20 border-b border-line bg-surface/95 backdrop-blur">
-        <div className="mx-auto flex max-w-[1200px] flex-wrap gap-x-6 gap-y-2 px-5 py-4 font-mono text-sm">
-          {sections.map((section) => (
-            <a key={section.id} href={`#${section.id}`} className="focus-ring text-muted hover:text-flame">
-              {section.label}
-            </a>
+
+      <section className="mx-auto max-w-[1200px] px-5 pt-24" aria-label="Pe scurt">
+        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {sections.map((section, index) => (
+            <li key={section.id}>
+              <a
+                href={`#${section.id}`}
+                className="focus-ring group relative block h-full overflow-hidden border border-line bg-white px-7 pt-9 pb-8 transition-all hover:-translate-y-1 hover:border-transparent hover:shadow-[0_25px_50px_-20px_rgba(38,32,81,0.3)]"
+              >
+                <span aria-hidden="true" className="big-num big-num-light absolute top-4 right-5">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <Icon name={icons[section.id]} className="size-12" />
+                <h2 className="mt-6 text-[19px] font-bold">{section.title}</h2>
+                <span className="link-arrow mt-4">
+                  <span aria-hidden="true">→</span> Detalii
+                </span>
+                <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-flame transition-transform group-hover:scale-x-100" />
+              </a>
+            </li>
           ))}
-          <a href="#securitate" className="focus-ring text-muted hover:text-flame">
-            Securitate
-          </a>
-        </div>
-      </nav>
-      <div className="mx-auto max-w-[1200px] space-y-24 px-5 py-20">
+        </ul>
+      </section>
+
+      <div className="mx-auto max-w-[1200px] space-y-28 px-5 py-28">
         {sections.map((section, index) => (
-          <section key={section.id} id={section.id} className="grid scroll-mt-32 items-center gap-12 lg:grid-cols-2">
-            <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-              <Screen src={section.screen} domain={section.domain} alt={section.alt} />
+          <section key={section.id} id={section.id} className="grid scroll-mt-28 items-center gap-14 lg:grid-cols-2" aria-labelledby={`${section.id}-titlu`}>
+            <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+              <div aria-hidden="true" className={`absolute -bottom-5 h-[70%] w-[70%] bg-flame-soft ${index % 2 === 1 ? "-right-5" : "-left-5"}`} />
+              <Screen src={section.screen} domain={section.domain} alt={section.alt} className="relative" />
             </div>
             <div>
-              <p className="font-mono text-xs text-flame">{section.label}</p>
-              <h2 className="mt-3 text-3xl font-semibold md:text-4xl">{section.title}</h2>
-              <p className="mt-4 max-w-[60ch] text-[17px] leading-relaxed text-muted">{section.text}</p>
-              <ul className="mt-6 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+              <p className="eyebrow">{section.label}</p>
+              <h2 id={`${section.id}-titlu`} className="mt-3 text-[1.9rem] md:text-[2.25rem]">
+                {section.title}
+              </h2>
+              <p className="mt-5 max-w-[60ch]">{section.text}</p>
+              <ul className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
                 {section.points.map((point) => (
-                  <li key={point} className="flex gap-2 text-[15px]">
-                    <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-flame" />
+                  <li key={point} className="flex gap-3 text-[15px] font-semibold text-ink">
+                    <svg aria-hidden="true" viewBox="0 0 16 16" className="mt-1 size-4 shrink-0 text-cta">
+                      <path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                     {point}
                   </li>
                 ))}
               </ul>
-              <Link href={section.href} className="focus-ring mt-7 inline-block font-mono text-sm text-flame hover:underline">
-                {section.id === "ai" ? "Arhitectura completă →" : "Proiecte din domeniu →"}
+              <Link href={section.href} className="link-arrow focus-ring mt-8">
+                <span aria-hidden="true">→</span> {section.id === "ai" ? "Arhitectura completă" : "Proiecte din domeniu"}
               </Link>
             </div>
           </section>
         ))}
       </div>
 
-      <section id="securitate" className="scroll-mt-32 bg-night text-white" aria-labelledby="securitate-titlu">
-        <div className="mx-auto max-w-[1200px] px-5 py-24">
-          <p className="font-mono text-xs text-signal">Securitate și conformitate</p>
-          <h2 id="securitate-titlu" className="mt-3 text-3xl font-semibold md:text-[2.75rem]">
-            Incluse în fiecare proiect
-          </h2>
-          <dl className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
-            {security.map(([title, text]) => (
-              <div key={title} className="bg-night-2 p-7">
-                <dt className="text-lg font-semibold">{title}</dt>
-                <dd className="mt-2 text-[15px] leading-relaxed text-white/60">{text}</dd>
-              </div>
-            ))}
-          </dl>
-          <h3 className="mt-16 text-xl font-semibold">Practici de inginerie</h3>
-          <dl className="mt-6 grid gap-x-10 gap-y-5 md:grid-cols-2">
-            {standards.map(([title, text]) => (
-              <div key={title} className="border-t border-white/10 pt-4">
-                <dt className="font-medium">{title}</dt>
-                <dd className="mt-1 text-[15px] text-white/60">{text}</dd>
+      <section id="securitate" className="on-dark relative scroll-mt-20 overflow-hidden bg-night" aria-labelledby="securitate-titlu">
+        <Shapes variant="band" />
+        <div className="relative mx-auto max-w-[1200px] px-5 py-24">
+          <div className="mx-auto max-w-[760px] text-center">
+            <p className="eyebrow">Securitate și conformitate</p>
+            <h2 id="securitate-titlu" className="mt-3 text-[2rem] md:text-[2.5rem]">
+              Incluse în fiecare proiect
+            </h2>
+          </div>
+          <dl className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {security.map(([title, text], index) => (
+              <div key={title} className="relative overflow-hidden border border-white/10 bg-night-2/60 p-8">
+                <span aria-hidden="true" className="big-num absolute top-3 right-4">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <Icon name={securityIcons[index]} className="size-10" light />
+                <dt className="mt-5 font-heading text-[19px] font-bold text-white">{title}</dt>
+                <dd className="mt-2 text-[15px] leading-[1.75] text-lavender">{text}</dd>
               </div>
             ))}
           </dl>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-[1200px] px-5 py-24" aria-labelledby="practici">
+        <p className="eyebrow">Inginerie</p>
+        <h2 id="practici" className="mt-3 text-[2rem] md:text-[2.5rem]">
+          Practici aplicate în fiecare proiect
+        </h2>
+        <dl className="mt-12 grid gap-x-12 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
+          {standards.map(([title, text]) => (
+            <div key={title} className="border-t-2 border-line pt-5">
+              <dt className="font-heading text-[18px] font-bold text-ink">{title}</dt>
+              <dd className="mt-2 text-[15px]">{text}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
     </main>
   );

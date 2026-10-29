@@ -110,7 +110,7 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
 
   if (!ready) {
     return (
-      <div className="rounded-md border border-line bg-surface p-6">
+      <div className=" border border-line bg-surface p-6">
         {kind === "admin" ? (
           <>
             <p>Camera de date are nevoie de aceste variabile, setate în Vercel, nu în cod:</p>
@@ -134,9 +134,9 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
           event.preventDefault();
           void login(new FormData(event.currentTarget));
         }}
-        className="max-w-md rounded-md border border-line bg-surface p-6"
+        className="max-w-md border border-line bg-surface p-6"
       >
-        <label htmlFor="secret" className="font-mono text-xs text-muted">
+        <label htmlFor="secret" className="text-[12px] font-extrabold tracking-[0.06em] text-violet uppercase">
           {kind === "admin" ? "Parolă de administrator" : "Cod de acces"}
         </label>
         <input
@@ -145,10 +145,10 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
           type="password"
           autoComplete={kind === "admin" ? "current-password" : "off"}
           required
-          className="focus-ring mt-2 w-full rounded-lg border border-line bg-bg px-3 py-2.5"
+          className="focus-ring mt-2 w-full border border-line bg-bg px-3 py-2.5"
         />
-        {error ? <p className="mt-3 text-sm text-flame">{error}</p> : null}
-        <button type="submit" disabled={pending} className="focus-ring mt-5 rounded-lg bg-flame px-5 py-2.5 text-sm font-medium text-white disabled:opacity-60">
+        {error ? <p className="mt-3 text-sm font-bold text-red-700">{error}</p> : null}
+        <button type="submit" disabled={pending} className="focus-ring mt-5 btn disabled:opacity-60">
           {pending ? "Se verifică…" : "Intră"}
         </button>
       </form>
@@ -161,13 +161,13 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
         <p className="text-sm text-muted">
           {files.length === 0 ? "Nu este încă niciun document." : `${files.length} ${files.length === 1 ? "document" : "documente"}`}
         </p>
-        <button type="button" onClick={() => void logout()} className="focus-ring font-mono text-sm text-flame">
+        <button type="button" onClick={() => void logout()} className="focus-ring font-bold text-cta">
           Ieșire
         </button>
       </div>
 
       {kind === "admin" ? (
-        <div className="rounded-md border border-dashed border-flame/40 bg-surface p-6">
+        <div className=" border border-dashed border-flame/40 bg-surface p-6">
           <label className="font-medium">Încarcă documente</label>
           <p className="mt-1 text-sm text-muted">PDF, Word, Excel, PowerPoint, text, imagini sau ZIP. Maximum 32 MB de fișier.</p>
           <input
@@ -184,10 +184,10 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
         </div>
       ) : null}
 
-      {error ? <p className="text-sm text-flame">{error}</p> : null}
+      {error ? <p className="text-sm font-bold text-red-700">{error}</p> : null}
       {notice ? <p className="text-sm text-ink">{notice}</p> : null}
 
-      <ul className="overflow-hidden rounded-md border border-line bg-surface">
+      <ul className="overflow-hidden border border-line bg-surface">
         {files.map((file) => (
           <li key={file.id} className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4 last:border-b-0">
             <div>
@@ -197,7 +197,7 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
               </p>
             </div>
             <div className="flex gap-4 text-sm">
-              <a href={`/api/camera-de-date/files/${file.id}`} className="focus-ring text-flame">
+              <a href={`/api/camera-de-date/files/${file.id}`} className="focus-ring font-bold text-cta">
                 Descarcă
               </a>
               {kind === "admin" ? (
@@ -217,7 +217,7 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
             void changeCode(new FormData(event.currentTarget));
             event.currentTarget.reset();
           }}
-          className="rounded-md border border-line bg-surface p-6"
+          className=" border border-line bg-surface p-6"
         >
           <h2 className="text-lg font-semibold">Codul invitaților</h2>
           <p className="mt-1 max-w-[60ch] text-sm text-muted">
@@ -226,8 +226,8 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
           <label htmlFor="code" className="mt-4 block font-mono text-xs text-muted">
             Cod nou
           </label>
-          <input id="code" name="code" type="text" minLength={8} maxLength={80} required className="focus-ring mt-2 w-full max-w-sm rounded-lg border border-line bg-bg px-3 py-2.5" />
-          <button type="submit" disabled={pending} className="focus-ring mt-4 rounded-lg border border-ink px-4 py-2 text-sm disabled:opacity-60">
+          <input id="code" name="code" type="text" minLength={8} maxLength={80} required className="focus-ring mt-2 w-full max-w-sm border border-line bg-bg px-3 py-2.5" />
+          <button type="submit" disabled={pending} className="focus-ring mt-4 border border-ink px-4 py-2 text-sm disabled:opacity-60">
             Schimbă codul
           </button>
         </form>
@@ -237,7 +237,7 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
 
       <p className="text-sm">
         {kind === "admin" ? (
-          <Link href="/camera-de-date" className="focus-ring text-flame">
+          <Link href="/camera-de-date" className="focus-ring font-bold text-cta">
             Pagina invitaților
           </Link>
         ) : (

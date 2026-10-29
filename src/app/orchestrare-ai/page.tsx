@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OrchestrationGraph } from "@/components/OrchestrationGraph";
+import { Icon, type IconName } from "@/components/Icons";
 import { PageHead } from "@/components/PageHead";
+import { Shapes } from "@/components/Shapes";
 import { principles } from "@/lib/company";
 import { featured, others } from "@/lib/projects";
 
@@ -28,6 +30,8 @@ const fit = [
   ["Imagini", "Fotografii de documente, rețete sau radiografii care trebuie citite și explicate."],
 ];
 
+const principleIcons: IconName[] = ["flow", "audit", "test", "security", "data", "cloud"];
+
 const applied = ["Scriva", "REDI Health", "Optim Dental", "Levio"]
   .map((name) => [...featured, ...others].find((p) => p.name === name))
   .filter((p) => p !== undefined);
@@ -46,32 +50,37 @@ export default function OrchestrarePage() {
       </div>
 
       <section className="mx-auto max-w-[1200px] px-5 py-24" aria-labelledby="arhitectura">
-        <p className="font-mono text-xs text-flame">Arhitectură</p>
-        <h2 id="arhitectura" className="mt-3 text-3xl font-semibold md:text-[2.75rem]">
+        <p className="eyebrow">Arhitectură</p>
+        <h2 id="arhitectura" className="mt-3 text-[2rem] md:text-[2.5rem]">
           Straturile unui sistem orchestrat
         </h2>
-        <ol className="mt-12 overflow-hidden rounded-2xl border border-line bg-surface">
+        <ol className="mt-12 border-t-2 border-line">
           {layers.map((layer, index) => (
-            <li key={layer.name} className="grid gap-2 border-b border-line px-6 py-6 last:border-b-0 md:grid-cols-[4rem_14rem_1fr] md:items-baseline md:gap-6">
-              <span className="font-mono text-xs text-muted">L{index + 1}</span>
-              <h3 className="text-lg font-semibold">{layer.name}</h3>
+            <li key={layer.name} className="grid gap-2 border-b border-line py-7 md:grid-cols-[5rem_15rem_1fr] md:items-baseline md:gap-6">
+              <span className="font-heading text-[2rem] leading-none font-extrabold text-flame/40">{String(index + 1).padStart(2, "0")}</span>
+              <h3 className="text-[19px]">{layer.name}</h3>
               <p className="leading-relaxed text-muted">{layer.text}</p>
             </li>
           ))}
         </ol>
       </section>
 
-      <section className="bg-night text-white" aria-labelledby="principii">
-        <div className="mx-auto max-w-[1200px] px-5 py-24">
-          <p className="font-mono text-xs text-signal">Principii</p>
-          <h2 id="principii" className="mt-3 text-3xl font-semibold md:text-[2.75rem]">
+      <section className="on-dark relative overflow-hidden bg-night text-white" aria-labelledby="principii">
+        <Shapes variant="band" />
+        <div className="relative mx-auto max-w-[1200px] px-5 py-24">
+          <p className="eyebrow">Principii</p>
+          <h2 id="principii" className="mt-3 text-[2rem] md:text-[2.5rem]">
             Ce garantează fiecare flux
           </h2>
-          <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
-            {principles.map((item) => (
-              <li key={item.title} className="bg-night-2 p-7">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-white/60">{item.text}</p>
+          <ul className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {principles.map((item, index) => (
+              <li key={item.title} className="relative overflow-hidden border border-white/10 bg-night-2/60 p-8">
+                <span aria-hidden="true" className="big-num absolute top-3 right-4">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <Icon name={principleIcons[index]} className="size-10" light />
+                <h3 className="mt-5 text-[19px]">{item.title}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-lavender">{item.text}</p>
               </li>
             ))}
           </ul>
@@ -80,8 +89,8 @@ export default function OrchestrarePage() {
 
       <section className="mx-auto grid max-w-[1200px] gap-14 px-5 py-24 lg:grid-cols-2" aria-labelledby="unde">
         <div>
-          <p className="font-mono text-xs text-flame">Unde are sens</p>
-          <h2 id="unde" className="mt-3 text-3xl font-semibold md:text-4xl">
+          <p className="eyebrow">Unde are sens</p>
+          <h2 id="unde" className="mt-3 text-[1.9rem] md:text-[2.25rem]">
             Folosim AI acolo unde munca este cu text, vorbire sau imagini
           </h2>
           <p className="mt-4 max-w-[56ch] leading-relaxed text-muted">
@@ -98,19 +107,19 @@ export default function OrchestrarePage() {
           </dl>
         </div>
         <div>
-          <p className="font-mono text-xs text-flame">Aplicat</p>
-          <h2 className="mt-3 text-3xl font-semibold md:text-4xl">Sisteme cu AI construite de noi</h2>
+          <p className="eyebrow">Aplicat</p>
+          <h2 className="mt-3 text-[1.9rem] md:text-[2.25rem]">Sisteme cu AI construite de noi</h2>
           <ul className="mt-8 space-y-4">
             {applied.map((project) => (
               <li key={project.name}>
                 <a
                   href={project.href}
                   rel="noreferrer"
-                  className="focus-ring group block rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-flame"
+                  className="focus-ring group block border border-line bg-surface p-6 transition-colors hover:border-cta"
                 >
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="text-xl font-semibold group-hover:text-flame">{project.name} ↗</h3>
-                    <span className="font-mono text-xs text-muted">{project.area}</span>
+                    <h3 className="text-xl font-semibold group-hover:text-cta">{project.name} ↗</h3>
+                    <span className="text-[12px] font-extrabold tracking-[0.06em] text-violet uppercase">{project.area}</span>
                   </div>
                   <p className="mt-2 leading-relaxed text-muted">{project.ai ?? project.summary}</p>
                 </a>
@@ -121,14 +130,15 @@ export default function OrchestrarePage() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-6 rounded-3xl bg-night px-8 py-14 text-white md:flex-row md:items-center md:justify-between md:px-12">
-          <div>
-            <h2 className="text-2xl font-semibold md:text-3xl">Evaluăm împreună un flux din instituția dumneavoastră</h2>
-            <p className="mt-2 max-w-[56ch] text-white/65">
+        <div className="on-dark relative mx-auto flex max-w-[1200px] flex-col gap-6 overflow-hidden bg-[linear-gradient(110deg,#262051_0%,#332d5f_55%,#3d2f7a_100%)] px-8 py-16 text-white md:flex-row md:items-center md:justify-between md:px-14">
+          <Shapes variant="band" />
+          <div className="relative">
+            <h2 className="text-[1.6rem] md:text-[2rem]">Evaluăm împreună un flux din instituția dumneavoastră</h2>
+            <p className="mt-3 max-w-[56ch] text-white/75">
               Alegem un proces, măsurăm cât durează azi și construim un pilot pe date de test, cu rezultatele comparate.
             </p>
           </div>
-          <Link href="/contact" className="focus-ring shrink-0 rounded-full bg-white px-5 py-3 text-sm font-medium text-ink hover:bg-white/90">
+          <Link href="/contact" className="btn btn-line focus-ring relative shrink-0 self-start md:self-center">
             Discutăm un proiect
           </Link>
         </div>

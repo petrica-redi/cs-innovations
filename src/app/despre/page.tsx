@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Icon } from "@/components/Icons";
 import { PageHead } from "@/components/PageHead";
+import { Shapes } from "@/components/Shapes";
 import { company, programmes } from "@/lib/company";
 
 export const metadata: Metadata = {
@@ -24,9 +26,12 @@ export default function DesprePage() {
         Spaces Unirii View, în București.
       </PageHead>
 
-      <section className="mx-auto grid max-w-[1200px] gap-12 px-5 py-16 lg:grid-cols-[1.2fr_1fr]">
-        <div className="max-w-[62ch] space-y-5 text-[17px] leading-relaxed text-muted">
-          <h2 className="text-3xl font-semibold text-ink">Ce construim</h2>
+      <section className="mx-auto grid max-w-[1200px] items-start gap-16 px-5 py-24 lg:grid-cols-[1.2fr_1fr]" aria-labelledby="ce">
+        <div className="max-w-[62ch] space-y-5">
+          <p className="eyebrow">Ce facem</p>
+          <h2 id="ce" className="!mt-3 text-[2rem] md:text-[2.5rem]">
+            Software și orchestrare AI pentru instituții
+          </h2>
           <p>
             CS Innovations este o firmă de dezvoltare software și orchestrare AI. Construim platforme pentru sectorul public
             și social, sănătate și cercetare, iar acolo unde un model AI aduce un câștig îl integrăm într-un flux cu pași
@@ -42,37 +47,47 @@ export default function DesprePage() {
             digitală, firma a fost selectată în acceleratorul 28DIGITAL.
           </p>
         </div>
-        <div className="space-y-4">
-          {programmes.map((item) => (
+        <div className="space-y-5">
+          {programmes.map((item, index) => (
             <a
               key={item.name}
               href={item.href}
               rel="noreferrer"
-              className="focus-ring block rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-flame"
+              className="focus-ring group relative block overflow-hidden border border-line bg-white p-8 transition-shadow hover:shadow-[0_25px_50px_-20px_rgba(38,32,81,0.3)]"
             >
-              <p className="font-mono text-xs text-flame">{item.kind}</p>
-              <h2 className="mt-1 text-xl font-semibold">{item.name} ↗</h2>
-              <p className="mt-2 text-[15px] leading-relaxed text-muted">{item.text}</p>
+              <span aria-hidden="true" className="big-num big-num-light absolute top-4 right-5">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <Icon name={index === 0 ? "research" : "platform"} className="size-11" />
+              <p className="eyebrow mt-5">{item.kind}</p>
+              <h3 className="mt-1 text-[21px]">{item.name}</h3>
+              <p className="mt-2 text-[15px] leading-[1.75]">{item.text}</p>
+              <span className="link-arrow mt-4">
+                <span aria-hidden="true">→</span> Site-ul programului
+              </span>
+              <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[3px] origin-left scale-x-0 bg-flame transition-transform group-hover:scale-x-100" />
             </a>
           ))}
         </div>
       </section>
 
-      <section id="date" className="scroll-mt-24 border-t border-line bg-surface" aria-labelledby="date-titlu">
-        <div className="mx-auto max-w-[1200px] px-5 py-14">
-          <h2 id="date-titlu" className="text-2xl font-semibold">
+      <section id="date" className="on-dark relative scroll-mt-24 overflow-hidden bg-night" aria-labelledby="date-titlu">
+        <Shapes variant="band" />
+        <div className="relative mx-auto max-w-[1200px] px-5 py-20">
+          <p className="eyebrow">Identificare</p>
+          <h2 id="date-titlu" className="mt-3 text-[2rem]">
             Datele firmei
           </h2>
-          <dl className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {facts.map(([label, value]) => (
-              <div key={label} className="bg-surface p-5">
-                <dt className="font-mono text-xs text-muted">{label}</dt>
-                <dd className="mt-1.5">{value}</dd>
+              <div key={label} className="border border-white/10 bg-night-2/60 p-6">
+                <dt className="text-[12px] font-extrabold tracking-[0.06em] text-flame uppercase">{label}</dt>
+                <dd className="mt-2 font-heading text-[17px] font-semibold text-white">{value}</dd>
               </div>
             ))}
-            <div className="bg-surface p-5 sm:col-span-2 lg:col-span-3">
-              <dt className="font-mono text-xs text-muted">Birou</dt>
-              <dd className="mt-1.5">{company.addressLines.join(", ")}</dd>
+            <div className="border border-white/10 bg-night-2/60 p-6">
+              <dt className="text-[12px] font-extrabold tracking-[0.06em] text-flame uppercase">Birou</dt>
+              <dd className="mt-2 font-heading text-[17px] font-semibold text-white">{company.addressLines.join(", ")}</dd>
             </div>
           </dl>
         </div>

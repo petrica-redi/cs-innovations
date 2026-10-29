@@ -5,8 +5,8 @@ export function AreaTile({ area, active = false }: { area: Area; active?: boolea
   return (
     <span
       aria-hidden="true"
-      className={`inline-flex h-8 items-center rounded-full border px-2.5 font-mono text-xs ${
-        active ? "border-flame bg-flame text-white" : "border-line bg-surface text-ink"
+      className={`inline-flex h-8 items-center border px-2.5 font-heading text-xs font-bold ${
+        active ? "border-cta bg-cta text-white" : "border-line bg-surface text-ink"
       }`}
     >
       {count}

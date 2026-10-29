@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Montserrat, Nunito_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { company } from "@/lib/company";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const geist = Geist({
-  variable: "--font-geist",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+});
+
+const nunito = Nunito_Sans({
+  variable: "--font-nunito",
   subsets: ["latin", "latin-ext"],
   display: "swap",
 });
@@ -65,11 +71,11 @@ const organization = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ro" className={`${geist.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="ro" className={`${montserrat.variable} ${nunito.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <a
           href="#continut"
-          className="sr-only z-50 rounded-md bg-ink px-4 py-2 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-50 bg-night px-4 py-2 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Sari la conținut
         </a>

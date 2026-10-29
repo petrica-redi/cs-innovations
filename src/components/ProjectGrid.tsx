@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AreaTile } from "@/components/AreaTile";
-import { Screen } from "@/components/Screen";
+import { ProjectCard } from "@/components/ProjectCard";
 import { areas, featured, others, type Area } from "@/lib/projects";
 
 export function ProjectGrid() {
@@ -35,8 +35,8 @@ function ProjectGridInner() {
           type="button"
           aria-pressed={area === "Toate"}
           onClick={() => choose("Toate")}
-          className={`focus-ring h-12 rounded-full border px-4 font-mono text-sm ${
-            area === "Toate" ? "border-flame bg-flame text-white" : "border-line bg-surface hover:border-flame"
+          className={`focus-ring h-12 border px-5 font-heading text-sm font-bold ${
+            area === "Toate" ? "border-cta bg-cta text-white" : "border-line bg-surface text-ink hover:border-cta"
           }`}
         >
           Toate
@@ -47,8 +47,8 @@ function ProjectGridInner() {
             type="button"
             aria-pressed={area === item}
             onClick={() => choose(item)}
-            className={`focus-ring flex items-center gap-3 rounded-full pr-4 text-sm font-medium ${
-              area === item ? "text-flame" : "text-ink hover:text-flame"
+            className={`focus-ring flex items-center gap-3 pr-4 text-sm font-bold ${
+              area === item ? "text-cta" : "text-ink hover:text-cta"
             }`}
           >
             <AreaTile area={item} active={area === item} />
@@ -58,41 +58,28 @@ function ProjectGridInner() {
       </div>
 
       {shown.length > 0 ? (
-        <ul className="mt-10 grid gap-6 md:grid-cols-2">
+        <ul className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2">
           {shown.map((project) => (
-            <li key={project.name}>
-              <a
-                href={project.href}
-                rel="noreferrer"
-                className="focus-ring group flex h-full flex-col rounded-2xl border border-line bg-surface p-4 transition-colors hover:border-flame"
-              >
-                <Screen
-                  src={project.screen!}
-                  domain={project.domain!}
-                  alt={`Pagina ${project.name}, așa cum arată online`}
-                  sizes="(min-width: 768px) 45vw, 100vw"
-                />
-                <div className="mt-5 flex items-baseline justify-between gap-4 px-1">
-                  <h2 className="text-xl font-semibold group-hover:text-flame">{project.name}</h2>
-                  <span className="font-mono text-xs text-muted">{project.area}</span>
-                </div>
-                <p className="mt-2 flex-1 px-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
+            <li key={project.name} className="flex flex-col">
+              <ProjectCard project={project} sizes="(min-width: 768px) 560px, 100vw" />
+              <div className="mt-5 px-1">
+                <p className="text-[15px]">{project.summary}</p>
                 {project.ai ? (
-                  <p className="mx-1 mt-4 border-l-2 border-[#0f7a55] pl-3 text-sm text-ink/75">
-                    <span className="font-mono text-xs">AI · </span>
+                  <p className="mt-4 border-l-[3px] border-flame bg-flame-soft px-4 py-3 text-[14px] text-ink">
+                    <span className="font-heading text-xs font-extrabold text-cta">AI </span>
                     {project.ai}
                   </p>
                 ) : null}
                 {project.tags ? (
-                  <ul className="mt-4 flex flex-wrap gap-2 px-1 pb-1">
+                  <ul className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <li key={tag} className="rounded-full border border-line px-2.5 py-0.5 font-mono text-[11px] text-muted">
+                      <li key={tag} className="bg-soft px-3 py-1 text-[12px] font-bold text-ink/70">
                         {tag}
                       </li>
                     ))}
                   </ul>
                 ) : null}
-              </a>
+              </div>
             </li>
           ))}
         </ul>
@@ -100,26 +87,27 @@ function ProjectGridInner() {
 
       {rest.length > 0 ? (
         <section className="mt-16" aria-labelledby="alte">
-          <h2 id="alte" className="text-2xl font-semibold">
-            Alte lucrări
+          <p className="eyebrow">Alte lucrări</p>
+          <h2 id="alte" className="mt-3 text-[1.75rem]">
+            Aplicații și panouri interne
           </h2>
-          <p className="mt-2 max-w-[62ch] text-sm text-muted">
-            Aplicații și panouri interne. Cele fără link nu au o versiune publică.
+          <p className="mt-2 max-w-[62ch] text-[15px]">
+            Cele fără link nu au o versiune publică.
           </p>
-          <ul className="mt-6 overflow-hidden rounded-2xl border border-line bg-surface">
+          <ul className="mt-8 border-t-2 border-line">
             {rest.map((project) => (
-              <li key={project.name} className="grid gap-1 border-b border-line px-5 py-4 last:border-b-0 sm:grid-cols-[14rem_1fr_auto] sm:items-baseline sm:gap-6">
-                <p className="font-medium">
+              <li key={project.name} className="grid gap-1 border-b border-line py-5 sm:grid-cols-[14rem_1fr_auto] sm:items-baseline sm:gap-6">
+                <p className="font-heading font-bold text-ink">
                   {project.href ? (
-                    <a href={project.href} rel="noreferrer" className="focus-ring hover:text-flame hover:underline">
+                    <a href={project.href} rel="noreferrer" className="focus-ring hover:text-cta hover:underline">
                       {project.name} ↗
                     </a>
                   ) : (
                     project.name
                   )}
                 </p>
-                <p className="text-sm text-muted">{project.summary}</p>
-                <p className="font-mono text-xs text-muted">{project.area}</p>
+                <p className="text-[15px]">{project.summary}</p>
+                <p className="text-[12px] font-extrabold tracking-[0.06em] text-violet uppercase">{project.area}</p>
               </li>
             ))}
           </ul>

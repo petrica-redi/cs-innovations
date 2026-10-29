@@ -1,68 +1,197 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #fafaf9;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --ink: #0c0c0d;
-  --muted: #5f6368;
-  --line: #e7e7e4;
-  --flame: #3b5bfd;
-  --flame-soft: #eef1ff;
+  --soft: #f8f8f8;
+  --ink: #1b1d21;
+  --muted: #6d6d6d;
+  --line: #e9e9e9;
+  --flame: #43baff;
+  --flame-soft: #eaf6ff;
+  --cta: #1592dd;
+  --violet: #7141b1;
+  --lavender: #aeaacb;
   --signal: #34d399;
-  --night: #0b0b0c;
-  --night-2: #151517;
+  --night: #262051;
+  --night-2: #332d5f;
+  --deep: #141d38;
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
+  --color-soft: var(--soft);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-flame: var(--flame);
   --color-flame-soft: var(--flame-soft);
+  --color-cta: var(--cta);
+  --color-violet: var(--violet);
+  --color-lavender: var(--lavender);
   --color-signal: var(--signal);
   --color-night: var(--night);
   --color-night-2: var(--night-2);
-  --font-sans: var(--font-geist);
+  --color-deep: var(--deep);
+  --font-sans: var(--font-nunito);
+  --font-heading: var(--font-montserrat);
   --font-mono: var(--font-geist-mono);
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--muted);
+    font-family: var(--font-nunito), system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--ink);
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+    line-height: 1.3;
+    text-wrap: balance;
+  }
+
+  h1,
+  h2 {
+    font-weight: 800;
+  }
+
+  h3,
+  h4 {
+    font-weight: 700;
+  }
+
+  .on-dark h1,
+  .on-dark h2,
+  .on-dark h3,
+  .on-dark h4 {
+    color: #fff;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
 }
 
-body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: var(--font-geist), system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
-}
+@layer components {
+  .eyebrow {
+    color: var(--violet);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
 
-h1,
-h2,
-h3 {
-  letter-spacing: -0.035em;
-  text-wrap: balance;
-}
+  .eyebrow::before {
+    content: "// ";
+  }
 
-p {
-  text-wrap: pretty;
-}
+  .on-dark .eyebrow {
+    color: #8e88b8;
+  }
 
-.dot-grid {
-  background-image: radial-gradient(rgb(12 12 13 / 0.09) 1px, transparent 1px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
-}
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--cta);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    padding: 19px 34px;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  }
 
-.dot-grid-dark {
-  background-image: radial-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px);
-  background-size: 22px 22px;
-}
+  .btn:hover {
+    background: var(--night);
+  }
 
-.glow-cobalt {
-  background: radial-gradient(ellipse 60% 70% at 50% 0%, rgb(59 91 253 / 0.35), transparent 70%);
+  .on-dark .btn:hover {
+    background: #fff;
+    color: var(--night);
+  }
+
+  .btn-line {
+    background: transparent;
+    border: 1px solid rgb(255 255 255 / 0.45);
+    padding: 18px 33px;
+  }
+
+  .btn-line:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--night);
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--cta);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .on-dark .link-arrow {
+    color: var(--flame);
+  }
+
+  .link-arrow:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .big-num {
+    color: rgb(255 255 255 / 0.05);
+    font-family: var(--font-montserrat), sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 0.8;
+  }
+
+  .big-num-light {
+    color: rgb(38 32 81 / 0.05);
+  }
+
+  .shape {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .shape-tri {
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+
+  .shape-tri-left {
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+
+  .shape-cyan {
+    background: linear-gradient(180deg, rgb(67 186 255 / 0.85), rgb(67 186 255 / 0.15));
+  }
+
+  .shape-violet {
+    background: linear-gradient(200deg, rgb(140 120 255 / 0.65), rgb(113 65 177 / 0.1));
+  }
+
+  .shape-lines {
+    background: repeating-linear-gradient(-60deg, transparent 0 22px, rgb(255 255 255 / 0.12) 22px 23px);
+  }
 }
 
 .focus-ring:focus-visible {
