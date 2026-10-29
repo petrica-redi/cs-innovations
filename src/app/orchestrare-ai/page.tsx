@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { OrchestrationTrace } from "@/components/OrchestrationTrace";
+import { OrchestrationGraph } from "@/components/OrchestrationGraph";
 import { PageHead } from "@/components/PageHead";
 import { principles } from "@/lib/company";
 import { featured, others } from "@/lib/projects";
@@ -35,18 +35,22 @@ const applied = ["Scriva", "REDI Health", "Optim Dental", "Levio"]
 export default function OrchestrarePage() {
   return (
     <main className="flex-1">
-      <PageHead label="Orchestrare AI" title="Sisteme AI care pot fi verificate" aside={<OrchestrationTrace />}>
+      <PageHead label="Orchestrare AI" title="Sisteme AI care pot fi verificate">
         Orchestrarea înseamnă să puneți un model AI într-un flux de lucru cu pași clari: ce date primește, ce face cu ele,
         cum este verificat rezultatul, cine îl aprobă și unde rămâne urma fiecărei acțiuni. Așa construim sistemele AI pentru
         instituții și clinici.
       </PageHead>
+
+      <div className="mx-auto max-w-[1200px] px-5 pt-14">
+        <OrchestrationGraph />
+      </div>
 
       <section className="mx-auto max-w-[1200px] px-5 py-24" aria-labelledby="arhitectura">
         <p className="font-mono text-xs text-flame">Arhitectură</p>
         <h2 id="arhitectura" className="mt-3 text-3xl font-semibold md:text-[2.75rem]">
           Straturile unui sistem orchestrat
         </h2>
-        <ol className="mt-12 overflow-hidden rounded-lg border border-line bg-surface">
+        <ol className="mt-12 overflow-hidden rounded-2xl border border-line bg-surface">
           {layers.map((layer, index) => (
             <li key={layer.name} className="grid gap-2 border-b border-line px-6 py-6 last:border-b-0 md:grid-cols-[4rem_14rem_1fr] md:items-baseline md:gap-6">
               <span className="font-mono text-xs text-muted">L{index + 1}</span>
@@ -63,7 +67,7 @@ export default function OrchestrarePage() {
           <h2 id="principii" className="mt-3 text-3xl font-semibold md:text-[2.75rem]">
             Ce garantează fiecare flux
           </h2>
-          <ul className="mt-12 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
             {principles.map((item) => (
               <li key={item.title} className="bg-night-2 p-7">
                 <h3 className="text-lg font-semibold">{item.title}</h3>
@@ -102,7 +106,7 @@ export default function OrchestrarePage() {
                 <a
                   href={project.href}
                   rel="noreferrer"
-                  className="focus-ring group block rounded-lg border border-line bg-surface p-6 transition-colors hover:border-flame"
+                  className="focus-ring group block rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-flame"
                 >
                   <div className="flex items-baseline justify-between gap-4">
                     <h3 className="text-xl font-semibold group-hover:text-flame">{project.name} ↗</h3>
@@ -117,14 +121,14 @@ export default function OrchestrarePage() {
       </section>
 
       <section className="px-5 pb-24">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-6 rounded-lg bg-flame px-8 py-12 text-white md:flex-row md:items-center md:justify-between md:px-12">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-6 rounded-3xl bg-night px-8 py-14 text-white md:flex-row md:items-center md:justify-between md:px-12">
           <div>
             <h2 className="text-2xl font-semibold md:text-3xl">Evaluăm împreună un flux din instituția dumneavoastră</h2>
-            <p className="mt-2 max-w-[56ch] text-white/85">
+            <p className="mt-2 max-w-[56ch] text-white/65">
               Alegem un proces, măsurăm cât durează azi și construim un pilot pe date de test, cu rezultatele comparate.
             </p>
           </div>
-          <Link href="/contact" className="focus-ring shrink-0 rounded-[4px] bg-white px-5 py-3 text-sm font-medium text-ink hover:bg-white/90">
+          <Link href="/contact" className="focus-ring shrink-0 rounded-full bg-white px-5 py-3 text-sm font-medium text-ink hover:bg-white/90">
             Discutăm un proiect
           </Link>
         </div>

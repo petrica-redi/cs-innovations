@@ -1,22 +1,20 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { company } from "@/lib/company";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
   display: "swap",
 });
 
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -67,11 +65,11 @@ const organization = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="ro" className={`${plexSans.variable} ${plexMono.variable} h-full antialiased`}>
+    <html lang="ro" className={`${geist.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <a
           href="#continut"
-          className="sr-only z-50 rounded-sm bg-flame px-4 py-2 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-50 rounded-md bg-ink px-4 py-2 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Sari la conținut
         </a>

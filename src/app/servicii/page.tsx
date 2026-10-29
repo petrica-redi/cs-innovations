@@ -118,7 +118,7 @@ export default function ServiciiPage() {
           <h2 id="securitate-titlu" className="mt-3 text-3xl font-semibold md:text-[2.75rem]">
             Incluse în fiecare proiect
           </h2>
-          <dl className="mt-12 grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
             {security.map(([title, text]) => (
               <div key={title} className="bg-night-2 p-7">
                 <dt className="text-lg font-semibold">{title}</dt>

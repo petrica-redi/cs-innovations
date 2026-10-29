@@ -35,7 +35,7 @@ function ProjectGridInner() {
           type="button"
           aria-pressed={area === "Toate"}
           onClick={() => choose("Toate")}
-          className={`focus-ring h-12 rounded-[3px] border px-4 font-mono text-sm ${
+          className={`focus-ring h-12 rounded-full border px-4 font-mono text-sm ${
             area === "Toate" ? "border-flame bg-flame text-white" : "border-line bg-surface hover:border-flame"
           }`}
         >
@@ -47,7 +47,7 @@ function ProjectGridInner() {
             type="button"
             aria-pressed={area === item}
             onClick={() => choose(item)}
-            className={`focus-ring flex items-center gap-3 rounded-[3px] pr-4 text-sm font-medium ${
+            className={`focus-ring flex items-center gap-3 rounded-full pr-4 text-sm font-medium ${
               area === item ? "text-flame" : "text-ink hover:text-flame"
             }`}
           >
@@ -64,7 +64,7 @@ function ProjectGridInner() {
               <a
                 href={project.href}
                 rel="noreferrer"
-                className="focus-ring group flex h-full flex-col rounded-md border border-line bg-surface p-4 transition-colors hover:border-flame"
+                className="focus-ring group flex h-full flex-col rounded-2xl border border-line bg-surface p-4 transition-colors hover:border-flame"
               >
                 <Screen
                   src={project.screen!}
@@ -78,7 +78,7 @@ function ProjectGridInner() {
                 </div>
                 <p className="mt-2 flex-1 px-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
                 {project.ai ? (
-                  <p className="mx-1 mt-4 rounded-md border border-signal/40 bg-[#ecfdf9] px-3 py-2 text-sm text-[#0f5f56]">
+                  <p className="mx-1 mt-4 border-l-2 border-[#0f7a55] pl-3 text-sm text-ink/75">
                     <span className="font-mono text-xs">AI · </span>
                     {project.ai}
                   </p>
@@ -106,7 +106,7 @@ function ProjectGridInner() {
           <p className="mt-2 max-w-[62ch] text-sm text-muted">
             Aplicații și panouri interne. Cele fără link nu au o versiune publică.
           </p>
-          <ul className="mt-6 overflow-hidden rounded-md border border-line bg-surface">
+          <ul className="mt-6 overflow-hidden rounded-2xl border border-line bg-surface">
             {rest.map((project) => (
               <li key={project.name} className="grid gap-1 border-b border-line px-5 py-4 last:border-b-0 sm:grid-cols-[14rem_1fr_auto] sm:items-baseline sm:gap-6">
                 <p className="font-medium">

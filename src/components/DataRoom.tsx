@@ -145,10 +145,10 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
           type="password"
           autoComplete={kind === "admin" ? "current-password" : "off"}
           required
-          className="focus-ring mt-2 w-full rounded-[4px] border border-line bg-bg px-3 py-2.5"
+          className="focus-ring mt-2 w-full rounded-lg border border-line bg-bg px-3 py-2.5"
         />
         {error ? <p className="mt-3 text-sm text-flame">{error}</p> : null}
-        <button type="submit" disabled={pending} className="focus-ring mt-5 rounded-[4px] bg-flame px-5 py-2.5 text-sm font-medium text-white disabled:opacity-60">
+        <button type="submit" disabled={pending} className="focus-ring mt-5 rounded-lg bg-flame px-5 py-2.5 text-sm font-medium text-white disabled:opacity-60">
           {pending ? "Se verifică…" : "Intră"}
         </button>
       </form>
@@ -226,8 +226,8 @@ export function DataRoom({ kind, ready, files, missing = [] }: Props) {
           <label htmlFor="code" className="mt-4 block font-mono text-xs text-muted">
             Cod nou
           </label>
-          <input id="code" name="code" type="text" minLength={8} maxLength={80} required className="focus-ring mt-2 w-full max-w-sm rounded-[4px] border border-line bg-bg px-3 py-2.5" />
-          <button type="submit" disabled={pending} className="focus-ring mt-4 rounded-[4px] border border-ink px-4 py-2 text-sm disabled:opacity-60">
+          <input id="code" name="code" type="text" minLength={8} maxLength={80} required className="focus-ring mt-2 w-full max-w-sm rounded-lg border border-line bg-bg px-3 py-2.5" />
+          <button type="submit" disabled={pending} className="focus-ring mt-4 rounded-lg border border-ink px-4 py-2 text-sm disabled:opacity-60">
             Schimbă codul
           </button>
         </form>

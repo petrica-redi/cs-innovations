@@ -48,7 +48,7 @@ export default function DesprePage() {
               key={item.name}
               href={item.href}
               rel="noreferrer"
-              className="focus-ring block rounded-md border border-line bg-surface p-6 transition-colors hover:border-flame"
+              className="focus-ring block rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-flame"
             >
               <p className="font-mono text-xs text-flame">{item.kind}</p>
               <h2 className="mt-1 text-xl font-semibold">{item.name} ↗</h2>
@@ -63,7 +63,7 @@ export default function DesprePage() {
           <h2 id="date-titlu" className="text-2xl font-semibold">
             Datele firmei
           </h2>
-          <dl className="mt-8 grid gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          <dl className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
             {facts.map(([label, value]) => (
               <div key={label} className="bg-surface p-5">
                 <dt className="font-mono text-xs text-muted">{label}</dt>

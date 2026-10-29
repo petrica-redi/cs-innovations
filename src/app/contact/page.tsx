@@ -16,7 +16,7 @@ export default function ContactPage() {
         Ne puteți scrie la biroul din București, Spaces Unirii View.
       </PageHead>
       <section className="mx-auto grid max-w-[1200px] gap-6 px-5 py-16 md:grid-cols-2">
-        <address className="rounded-md border border-line bg-surface p-7 not-italic">
+        <address className="rounded-2xl border border-line bg-surface p-7 not-italic">
           <p className="font-mono text-xs text-muted">Birou</p>
           <p className="mt-3 text-xl font-semibold">{company.legalName}</p>
           <p className="mt-3 leading-relaxed text-muted">
@@ -35,7 +35,7 @@ export default function ContactPage() {
           ) : null}
           {company.phone ? <p className="mt-2">{company.phone}</p> : null}
         </address>
-        <div className="rounded-md border border-line bg-surface p-7">
+        <div className="rounded-2xl border border-line bg-surface p-7">
           <p className="font-mono text-xs text-muted">Identificare</p>
           <dl className="mt-3 space-y-2 font-mono text-sm">
             <div className="flex justify-between gap-4 border-b border-line pb-2">

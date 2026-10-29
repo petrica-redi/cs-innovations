@@ -4,12 +4,16 @@ type Props = { label: string; title: string; children?: ReactNode; aside?: React
 
 export function PageHead({ label, title, children, aside }: Props) {
   return (
-    <section className="grid-paper bg-night text-white">
-      <div className="mx-auto grid max-w-[1200px] gap-10 px-5 pt-14 pb-12 lg:grid-cols-[1.2fr_1fr] lg:items-end">
+    <section className="relative overflow-hidden border-b border-line">
+      <div aria-hidden="true" className="dot-grid absolute inset-0" />
+      <div className="relative mx-auto grid max-w-[1200px] gap-12 px-5 pt-20 pb-16 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:pt-24 lg:pb-20">
         <div>
-          <p className="font-mono text-xs text-[#9ec3e6]">{label}</p>
-          <h1 className="mt-3 text-[2.4rem] leading-[1.1] font-semibold md:text-5xl">{title}</h1>
-          {children ? <div className="mt-5 max-w-[60ch] text-lg leading-relaxed text-white/70">{children}</div> : null}
+          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-xs text-muted">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-flame" />
+            {label}
+          </p>
+          <h1 className="mt-6 text-[2.75rem] leading-[1.02] font-semibold md:text-[4rem]">{title}</h1>
+          {children ? <div className="mt-6 max-w-[58ch] text-lg leading-relaxed text-muted">{children}</div> : null}
         </div>
         {aside}
       </div>

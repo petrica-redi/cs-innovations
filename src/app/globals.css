@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f4f6fa;
+  --bg: #fafaf9;
   --surface: #ffffff;
-  --ink: #0a1020;
-  --muted: #4b5568;
-  --line: #dde2ea;
-  --flame: #2563eb;
-  --flame-soft: #e8efff;
-  --signal: #2dd4bf;
-  --night: #060b16;
-  --night-2: #0c1426;
+  --ink: #0c0c0d;
+  --muted: #5f6368;
+  --line: #e7e7e4;
+  --flame: #3b5bfd;
+  --flame-soft: #eef1ff;
+  --signal: #34d399;
+  --night: #0b0b0c;
+  --night-2: #151517;
 }
 
 @theme inline {
@@ -24,20 +24,25 @@
   --color-signal: var(--signal);
   --color-night: var(--night);
   --color-night-2: var(--night-2);
-  --font-sans: var(--font-plex-sans);
-  --font-mono: var(--font-plex-mono);
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-plex-sans), "IBM Plex Sans", system-ui, sans-serif;
+  font-family: var(--font-geist), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
 }
 
 h1,
 h2,
 h3 {
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
   text-wrap: balance;
 }
 
@@ -45,27 +50,30 @@ p {
   text-wrap: pretty;
 }
 
-.grid-paper {
-  background-image:
-    radial-gradient(ellipse 80% 60% at 70% 0%, rgb(37 99 235 / 0.22), transparent 70%),
-    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
-  background-size:
-    100% 100%,
-    40px 40px,
-    40px 40px;
+.dot-grid {
+  background-image: radial-gradient(rgb(12 12 13 / 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
 }
 
-.grid-paper-light {
-  background-image:
-    linear-gradient(to right, rgb(10 16 32 / 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(10 16 32 / 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+.dot-grid-dark {
+  background-image: radial-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.glow-cobalt {
+  background: radial-gradient(ellipse 60% 70% at 50% 0%, rgb(59 91 253 / 0.35), transparent 70%);
 }
 
 .focus-ring:focus-visible {
   outline: 2px solid var(--flame);
   outline-offset: 3px;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -32;
+  }
 }
 
 @keyframes pulse-dot {
@@ -78,12 +86,42 @@ p {
   }
 }
 
+.flow-line {
+  stroke-dasharray: 4 12;
+  animation: flow 1.6s linear infinite;
+}
+
 .live-dot {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
+@supports (animation-timeline: view()) {
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .live-dot {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .flow-line,
+  .live-dot,
+  .reveal {
     animation: none;
   }
 }

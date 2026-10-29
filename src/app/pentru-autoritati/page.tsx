@@ -40,16 +40,16 @@ export default function AutoritatiPage() {
           Pagina aceasta este pentru autoritățile care pregătesc achiziția unei platforme informatice. Exemplul concret este
           SISCI, platforma noastră de management de caz pentru servicii comunitare integrate, pe care o puteți încerca în
           versiunea demonstrativă, cu date de test. Documentele procedurii se transmit prin{" "}
-          <Link href="/camera-de-date" className="text-white underline decoration-[#9ec3e6] underline-offset-4">
+          <Link href="/camera-de-date" className="text-ink underline decoration-flame underline-offset-4">
             camera de date
           </Link>
           : linkul și codul de acces pleacă pe canale separate.
         </p>
         <p className="mt-6 flex flex-wrap gap-3 text-sm">
-          <a href="https://sisci.vercel.app" rel="noreferrer" className="focus-ring rounded-[4px] bg-flame px-5 py-3 font-medium text-white hover:bg-[#0c3d68]">
+          <a href="https://sisci.vercel.app" rel="noreferrer" className="focus-ring rounded-full bg-ink px-5 py-3 font-medium text-white hover:bg-[#2a2a2e]">
             Deschide SISCI ↗
           </a>
-          <Link href="/despre#date" className="focus-ring rounded-[4px] border border-white/25 px-5 py-3 font-medium text-white hover:border-white/60">
+          <Link href="/despre#date" className="focus-ring rounded-full border border-line bg-surface px-5 py-3 font-medium hover:border-ink">
             Datele firmei
           </Link>
         </p>
@@ -61,7 +61,7 @@ export default function AutoritatiPage() {
         </h2>
         <ol className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {items.map(([title, text], index) => (
-            <li key={title} className="rounded-md border border-line bg-surface p-6">
+            <li key={title} className="rounded-2xl border border-line bg-surface p-6">
               <p className="font-mono text-xs text-flame">{String(index + 1).padStart(2, "0")}</p>
               <h3 className="mt-3 text-lg font-semibold">{title}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-muted">{text}</p>
