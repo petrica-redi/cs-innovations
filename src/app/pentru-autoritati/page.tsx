@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HowWeWork } from "@/components/HowWeWork";
 import { PageHead } from "@/components/PageHead";
 import { Screen } from "@/components/Screen";
 
@@ -73,6 +74,8 @@ export default function AutoritatiPage() {
           ))}
         </ol>
       </section>
+
+      <HowWeWork />
     </main>
   );
 }

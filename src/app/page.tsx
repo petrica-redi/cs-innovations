@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HowWeWork } from "@/components/HowWeWork";
 import { Icon, type IconName } from "@/components/Icons";
 import { OrchestrationGraph } from "@/components/OrchestrationGraph";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -296,6 +297,8 @@ export default function Home() {
           ))}
         </ol>
       </section>
+
+      <HowWeWork />
     </main>
   );
 }

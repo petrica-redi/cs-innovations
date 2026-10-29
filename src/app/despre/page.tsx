@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TeamRoles } from "@/components/HowWeWork";
 import { Icon } from "@/components/Icons";
 import { PageHead } from "@/components/PageHead";
 import { Shapes } from "@/components/Shapes";
@@ -70,6 +71,8 @@ export default function DesprePage() {
           ))}
         </div>
       </section>
+
+      <TeamRoles />
 
       <section id="date" className="on-dark relative scroll-mt-24 overflow-hidden bg-night" aria-labelledby="date-titlu">
         <Shapes variant="band" />

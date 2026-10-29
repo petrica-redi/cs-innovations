@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   description,
   authors: [{ name: company.legalName }],
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { ro: "/", en: "/en" } },
   openGraph: {
     title: `${company.brand} | Dezvoltare software și orchestrare AI`,
     description,

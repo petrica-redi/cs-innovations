@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Wordmark } from "@/components/ElementMark";
-import { company, dataRoomLink, nav, programmes } from "@/lib/company";
+import { company, dataRoomLink, legalLinks, nav, programmes } from "@/lib/company";
 
 function Contact({ icon, value, label }: { icon: ReactNode; value: ReactNode; label: string }) {
   return (
@@ -74,6 +74,16 @@ export function Footer() {
           © {company.legalName}. Selectată în{" "}
           {programmes.map((p) => `${p.kind.toLowerCase()}ul ${p.name}`).join(" și în ")}, programe finanțate de Uniunea
           Europeană.
+        </p>
+        <p className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-1 text-[13px]">
+          {legalLinks.map((item) => (
+            <Link key={item.href} href={item.href} className="focus-ring underline-offset-4 hover:text-white hover:underline">
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/en" hrefLang="en" className="focus-ring underline-offset-4 hover:text-white hover:underline">
+            English
+          </Link>
         </p>
       </div>
     </footer>

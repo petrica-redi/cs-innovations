@@ -27,6 +27,11 @@ export const nav = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+export const legalLinks = [
+  { href: "/politica-de-confidentialitate", label: "Politica de confidențialitate" },
+  { href: "/termeni", label: "Termeni de utilizare" },
+] as const;
+
 export const dataRoomLink = { href: "/camera-de-date", label: "Cameră de date" } as const;
 
 export const programmes = [
@@ -136,4 +141,41 @@ export const steps = [
     title: "Predare și operare",
     text: "Instruim utilizatorii, predăm codul sursă și manualul și rămânem pentru mentenanță.",
   },
+] as const;
+
+export const engagement = [
+  {
+    title: "Proiect cu preț fix",
+    text: "După analiză primiți un plan pe etape, cu livrabile, termene și recepție la finalul fiecărei etape. Plătiți etapele recepționate.",
+  },
+  {
+    title: "Echipă dedicată",
+    text: "Capacitate lunară rezervată pentru un produs care evoluează. Prioritățile le stabiliți dumneavoastră la începutul fiecărei iterații.",
+  },
+  {
+    title: "Mentenanță și suport",
+    text: "Abonament cu timpi de răspuns pe niveluri de gravitate, stabiliți în contract, actualizări de securitate și monitorizare în producție.",
+  },
+  {
+    title: "Achiziție publică",
+    text: "Răspundem la caiete de sarcini pentru platforme informatice. Documentele procedurii circulă prin camera de date.",
+  },
+] as const;
+
+export const commitments = [
+  ["Codul vă aparține", "Drepturile asupra codului creat pentru dumneavoastră se transferă prin contract, împreună cu documentația."],
+  ["În conturile dumneavoastră", "Repository-ul și infrastructura pot sta în conturile clientului din prima zi, nu în ale noastre."],
+  ["Garanție pentru defecte", "Defectele raportate în perioada de garanție din contract se corectează fără cost suplimentar."],
+  ["Vedeți progresul", "Acces la mediul de test și la lista de lucru, cu demonstrație la finalul fiecărei iterații."],
+  ["Confidențialitate", "Semnăm acord de confidențialitate înainte de analiză, la cererea dumneavoastră."],
+  ["Fără dependență de noi", "Predăm codul, manualul și documentația tehnică astfel încât orice echipă să poată prelua sistemul."],
+] as const;
+
+export const roles = [
+  ["Arhitect de soluție", "Modelul de date, integrările și deciziile tehnice. Punctul unic de contact tehnic pe tot proiectul."],
+  ["Dezvoltare full-stack", "Interfață, server și bază de date, livrate în iterații scurte pe date de test."],
+  ["Inginerie AI", "Alegerea modelelor, orchestrarea pașilor, seturile de test și urmărirea fiecărui apel."],
+  ["Calitate și testare", "Teste automate pe logica de business și pe fluxurile critice, înainte de fiecare publicare."],
+  ["UX și accesibilitate", "Ecrane gândite pentru oamenii care le folosesc zilnic, utilizabile cu tastatura și cititorul de ecran."],
+  ["Operare și securitate", "Găzduire în UE, copii de siguranță, monitorizare și actualizări de securitate."],
 ] as const;

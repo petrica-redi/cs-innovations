@@ -27,7 +27,16 @@ export function Header() {
                 {company.email}
               </a>
             ) : null}
-            <p className="flex h-full items-center border-x border-white/10 px-4">CUI {company.cui}</p>
+            <p className="flex h-full items-center border-l border-white/10 px-4">CUI {company.cui}</p>
+            <p className="flex h-full items-center gap-1 border-x border-white/10 px-4 font-bold">
+              <Link href="/" hrefLang="ro" aria-current={path === "/en" ? undefined : "true"} className="focus-ring px-1 hover:text-white aria-[current=true]:text-flame">
+                RO
+              </Link>
+              <span aria-hidden="true">/</span>
+              <Link href="/en" hrefLang="en" aria-current={path === "/en" ? "true" : undefined} className="focus-ring px-1 hover:text-white aria-[current=true]:text-flame">
+                EN
+              </Link>
+            </p>
           </div>
         </div>
       </div>
@@ -71,7 +80,7 @@ export function Header() {
                 aria-label="Principal (mobil)"
                 className="absolute right-0 mt-3 w-72 border-t-[3px] border-flame bg-white py-2 shadow-[0_25px_50px_-20px_rgba(20,29,56,0.4)]"
               >
-                {[...nav, { href: "/contact", label: "Discutăm un proiect" }].map((item, index) => (
+                {[...nav, { href: "/contact", label: "Discutăm un proiect" }, { href: "/en", label: "English" }].map((item, index) => (
                   <Link
                     key={`${item.href}-${index}`}
                     href={item.href}
