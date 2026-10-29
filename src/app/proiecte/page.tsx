@@ -5,7 +5,7 @@ import { ProjectGrid } from "@/components/ProjectGrid";
 export const metadata: Metadata = {
   title: "Proiecte",
   description:
-    "Platforme și sisteme AI construite de CS Innovations: SISCI, REDI Health, Scriva, Sentinel, REDI Business, REDI NGO, Chemistry tools.",
+    "Platforme și sisteme AI construite de CS Innovations: Platforma Mediere Publică, REDI Health, Scriva, Sentinel, REDI Business, REDI NGO, Chemistry tools.",
   alternates: { canonical: "/proiecte" },
 };
 

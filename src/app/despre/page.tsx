@@ -39,7 +39,7 @@ export default function DesprePage() {
           </p>
           <p>
             Proiectele pornesc de la procedura pe care echipa clientului o aplică deja și se predau cu cod sursă, instruire și
-            manual în limba română. Printre sistemele realizate sunt SISCI, REDI Health, Scriva, Sentinel, REDI Business și
+            manual în limba română. Printre sistemele realizate sunt Platforma Mediere Publică, REDI Health, Scriva, Sentinel, REDI Business și
             Chemistry tools. Site-ul redi-ngo.eu a fost realizat împreună cu echipa REDI.
           </p>
           <p>

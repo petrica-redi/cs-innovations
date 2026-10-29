@@ -36,7 +36,7 @@ const tech: { icon: IconName; label: string }[] = [
   { icon: "test", label: "Teste automate" },
 ];
 
-const showcase = ["SISCI", "REDI Health", "Sentinel", "REDI Business", "Scriva", "Chemistry tools"]
+const showcase = ["Platforma Mediere Publică", "REDI Health", "Sentinel", "REDI Business", "Scriva", "Chemistry tools"]
   .map((name) => featured.find((p) => p.name === name))
   .filter((p) => p !== undefined);
 
@@ -70,7 +70,7 @@ export default function Home() {
             </div>
             <div className="absolute bottom-0 left-0 w-[62%] lg:-bottom-16">
               <div className="relative aspect-[16/10] overflow-hidden border-[6px] border-white shadow-[0_40px_80px_-25px_rgba(0,0,0,0.75)]">
-                <Image src="/screens/sisci-case.jpg" alt="Dosarul unui beneficiar în SISCI" fill priority sizes="(min-width: 1024px) 340px, 60vw" className="object-cover object-top" />
+                <Image src="/screens/sisci-case.jpg" alt="Dosarul unui beneficiar în Platforma Mediere Publică" fill priority sizes="(min-width: 1024px) 340px, 60vw" className="object-cover object-top" />
               </div>
             </div>
           </div>

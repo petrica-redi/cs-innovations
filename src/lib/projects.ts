@@ -19,7 +19,7 @@ export function countByArea(area: Area) {
 
 export const featured: Project[] = [
   {
-    name: "SISCI",
+    name: "Platforma Mediere Publică",
     area: "Public și social",
     summary:
       "Management de caz pentru servicii comunitare integrate: dosarul beneficiarului de la prima evaluare până la închidere, cu planul de intervenție, vizitele de monitorizare și anexele tipărite. Versiunea publică folosește date de test.",

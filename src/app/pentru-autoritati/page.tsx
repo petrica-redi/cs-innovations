@@ -6,7 +6,7 @@ import { Screen } from "@/components/Screen";
 export const metadata: Metadata = {
   title: "Pentru autorități contractante",
   description:
-    "Ce primește o autoritate la finalul unui contract de platformă informatică cu CS Innovations, cu exemplul SISCI.",
+    "Ce primește o autoritate la finalul unui contract de platformă informatică cu CS Innovations, cu exemplul Platformei Mediere Publică.",
   alternates: { canonical: "/pentru-autoritati" },
 };
 
@@ -30,7 +30,7 @@ export default function AutoritatiPage() {
           <Screen
             src="/screens/sisci-case.jpg"
             domain="sisci.vercel.app"
-            alt="Dosarul unui beneficiar în SISCI, cu anexele 1–7"
+            alt="Dosarul unui beneficiar în Platforma Mediere Publică, cu anexele 1–7"
             priority
             dark
           />
@@ -38,7 +38,7 @@ export default function AutoritatiPage() {
       >
         <p>
           Pagina aceasta este pentru autoritățile care pregătesc achiziția unei platforme informatice. Exemplul concret este
-          SISCI, platforma noastră de management de caz pentru servicii comunitare integrate, pe care o puteți încerca în
+          Platforma Mediere Publică, soluția noastră de management de caz pentru servicii comunitare integrate, pe care o puteți încerca în
           versiunea demonstrativă, cu date de test. Documentele procedurii se transmit prin{" "}
           <Link href="/camera-de-date" className="text-white underline decoration-flame underline-offset-4">
             camera de date
@@ -47,7 +47,7 @@ export default function AutoritatiPage() {
         </p>
         <p className="mt-8 flex flex-wrap gap-4">
           <a href="https://sisci.vercel.app" rel="noreferrer" className="btn focus-ring">
-            Deschide SISCI
+            Deschide platforma
           </a>
           <Link href="/despre#date" className="btn btn-line focus-ring">
             Datele firmei

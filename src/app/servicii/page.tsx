@@ -20,7 +20,7 @@ const sections = [
     title: "Platforme software la comandă",
     screen: "/screens/sisci-case.jpg",
     domain: "sisci.vercel.app",
-    alt: "Dosarul unui beneficiar în SISCI, cu pașii de la evaluare la închidere",
+    alt: "Dosarul unui beneficiar în Platforma Mediere Publică, cu pașii de la evaluare la închidere",
     text: "Aplicații web pentru instituții și echipe care țin dosare, programări, registre și rapoarte. Pornim de la procedura pe care oamenii o aplică deja și o transformăm în roluri, ecrane, fluxuri de aprobare și exporturi.",
     points: ["Analiză de proces și specificații", "Arhitectură, model de date și UX", "Roluri, permisiuni și jurnal de acțiuni", "Rapoarte, exporturi și documente tipărite", "Lucru pe teren, și fără semnal", "Mentenanță și dezvoltare continuă"],
     href: "/proiecte?domeniu=Public%20%C8%99i%20social",
