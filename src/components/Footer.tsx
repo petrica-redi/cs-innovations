@@ -12,8 +12,8 @@ export function Footer() {
             <p className="text-base font-semibold">{company.brand}</p>
           </div>
           <p className="mt-4 max-w-sm leading-relaxed text-white/65">
-            Firmă de inginerie din Blejești, Teleorman, înființată în {company.founded}. Proiectăm platforme
-            informatice și lucrăm la proiecte de chimie și inovare socială.
+            Firmă de inginerie în București, din {company.founded}. Proiectăm platforme informatice și lucrăm la
+            proiecte de chimie și inovare socială.
           </p>
         </div>
         <div>

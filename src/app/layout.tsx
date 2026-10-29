@@ -21,7 +21,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const description =
-  "CS Innovations proiectează platforme informatice pentru servicii sociale, sănătate și laborator și lucrează la proiecte de chimie și de inovare socială. Blejești, Teleorman, din 2017.";
+  "CS Innovations proiectează platforme informatice pentru instituții, sănătate și laborator și lucrează la proiecte de chimie și de inovare socială. București, din 2017.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,14 +52,12 @@ const organization = {
       alternateName: company.brand,
       url: siteUrl,
       foundingDate: company.founded,
-      founder: { "@type": "Person", name: company.founder },
       taxID: company.cui,
       address: {
         "@type": "PostalAddress",
-        streetAddress: company.addressLines[0],
-        addressLocality: "Blejești",
-        addressRegion: "Teleorman",
-        postalCode: "147015",
+        streetAddress: "Bulevardul Corneliu Coposu nr. 6-8, Spaces Unirii View",
+        addressLocality: "București",
+        postalCode: "030167",
         addressCountry: "RO",
       },
     },

@@ -15,7 +15,7 @@ export function Header() {
           <ElementMark />
           <span className="leading-tight">
             <span className="block text-[15px] font-semibold">{company.brand}</span>
-            <span className="block font-mono text-[11px] text-white/55">inginerie · platforme</span>
+            <span className="block font-mono text-[11px] text-white/55">platforme informatice</span>
           </span>
         </Link>
 

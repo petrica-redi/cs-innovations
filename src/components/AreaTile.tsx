@@ -1,17 +1,15 @@
-import { areaSymbol, countByArea, type Area } from "@/lib/projects";
+import { countByArea, type Area } from "@/lib/projects";
 
 export function AreaTile({ area, active = false }: { area: Area; active?: boolean }) {
+  const count = String(countByArea(area)).padStart(2, "0");
   return (
     <span
       aria-hidden="true"
-      className={`relative inline-flex size-12 shrink-0 items-end rounded-[3px] border p-1.5 ${
+      className={`inline-flex h-8 items-center rounded-[3px] border px-2.5 font-mono text-xs ${
         active ? "border-flame bg-flame text-white" : "border-line bg-surface text-ink"
       }`}
     >
-      <span className={`absolute top-1 left-1.5 font-mono text-[9px] leading-none ${active ? "text-white/80" : "text-muted"}`}>
-        {countByArea(area)}
-      </span>
-      <span className="text-lg font-semibold leading-none tracking-tight">{areaSymbol[area]}</span>
+      {count}
     </span>
   );
 }

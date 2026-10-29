@@ -76,8 +76,7 @@ function ProjectGridInner() {
                   <h2 className="text-xl font-semibold group-hover:text-flame">{project.name}</h2>
                   <span className="font-mono text-xs text-muted">{project.area}</span>
                 </div>
-                <p className="mt-2 flex-1 px-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
-                <p className="mt-4 border-t border-line px-1 pt-3 font-mono text-xs text-muted">Autor: {project.credit}</p>
+                <p className="mt-2 flex-1 px-1 pb-1 text-[15px] leading-relaxed text-muted">{project.summary}</p>
               </a>
             </li>
           ))}

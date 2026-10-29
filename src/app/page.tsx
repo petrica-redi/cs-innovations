@@ -43,17 +43,17 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-[1200px] items-center gap-14 px-5 pt-16 pb-14 lg:grid-cols-[1fr_1.05fr] lg:pt-24">
           <div>
             <p className="font-mono text-xs text-white/55">
-              {company.legalName} · Blejești, Teleorman · din {company.founded}
+              {company.legalName} · București · din {company.founded}
             </p>
             <h1 className="mt-5 text-[2.5rem] leading-[1.08] font-semibold md:text-[3.5rem]">
-              Proiectăm platforme pentru servicii sociale, sănătate și <span className="text-[#a996ff]">laborator</span>.
+              Platforme informatice pentru instituții, sănătate și <span className="text-[#9ec3e6]">laborator</span>.
             </h1>
             <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-white/70">
-              O conduce {company.founder}, chimist de formare, care proiectează și construiește platformele firmei.
-              Le vedeți mai jos, așa cum arată online.
+              Analizăm procedura, construim aplicația și o predăm cu cod sursă, instruire și manual în limba română.
+              Firma a fost selectată în incubatorul EIT RawMaterials și în acceleratorul 28DIGITAL.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/proiecte" className="focus-ring rounded-[4px] bg-flame px-5 py-3 text-sm font-medium hover:bg-[#6b50ff]">
+              <Link href="/proiecte" className="focus-ring rounded-[4px] bg-flame px-5 py-3 text-sm font-medium hover:bg-[#0c3d68]">
                 Vezi proiectele
               </Link>
               <Link
@@ -93,7 +93,7 @@ export default function Home() {
                 rel="noreferrer"
                 className="focus-ring group block border-t border-white/10 py-6 md:border-t-0 md:border-l md:px-8"
               >
-                <span className="font-mono text-xs text-[#a996ff]">{item.kind}</span>
+                <span className="font-mono text-xs text-[#9ec3e6]">{item.kind}</span>
                 <span className="mt-1 block text-lg font-medium group-hover:underline">{item.name} ↗</span>
                 <span className="mt-1 block text-sm leading-relaxed text-white/60">{item.text}</span>
               </a>
@@ -118,7 +118,7 @@ export default function Home() {
           <h2 id="ce-facem" className="text-3xl font-semibold md:text-4xl">
             Ce facem
           </h2>
-          <p className="max-w-[46ch] text-sm text-muted">Cifra din colțul fiecărui simbol arată câte proiecte avem în acel domeniu.</p>
+          <p className="max-w-[46ch] text-sm text-muted">Numărul de pe fiecare card arată câte proiecte avem în acel domeniu.</p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {areasOfWork.map((item) => (
@@ -173,15 +173,16 @@ export default function Home() {
             Cum lucrăm
           </h2>
           <p className="max-w-[60ch] text-muted">
-            Punem aplicația devreme în mâna oamenilor care o vor folosi și o corectăm după ce ne spun ei.
+            De la analiză la predare, un contract de platformă trece prin acești patru pași.
           </p>
         </div>
         <ol className="mt-12 grid gap-8 md:grid-cols-4 md:gap-6">
-          {steps.map((text, index) => (
-            <li key={text} className="relative border-t-2 border-ink pt-5">
+          {steps.map((step, index) => (
+            <li key={step.title} className="relative border-t-2 border-ink pt-5">
               <span className="absolute -top-[7px] left-0 size-3 rounded-full border-2 border-ink bg-bg" aria-hidden="true" />
-              <p className="font-mono text-xs text-flame">Pasul {index + 1}</p>
-              <p className="mt-2 leading-relaxed">{text}</p>
+              <p className="font-mono text-xs text-flame">0{index + 1}</p>
+              <h3 className="mt-2 text-lg font-semibold">{step.title}</h3>
+              <p className="mt-2 leading-relaxed text-muted">{step.text}</p>
             </li>
           ))}
         </ol>

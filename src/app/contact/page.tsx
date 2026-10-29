@@ -5,7 +5,7 @@ import { company } from "@/lib/company";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Sediul și datele de identificare ale ${company.legalName}.`,
+  description: `Biroul din București și datele de identificare ale ${company.legalName}.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -13,11 +13,11 @@ export default function ContactPage() {
   return (
     <main className="flex-1">
       <PageHead label="Contact" title="Scrieți-ne">
-        Ne puteți scrie la sediul firmei din Blejești, pe adresa de mai jos.
+        Ne puteți scrie la biroul din București, Spaces Unirii View.
       </PageHead>
       <section className="mx-auto grid max-w-[1200px] gap-6 px-5 py-16 md:grid-cols-2">
         <address className="rounded-md border border-line bg-surface p-7 not-italic">
-          <p className="font-mono text-xs text-muted">Sediul social</p>
+          <p className="font-mono text-xs text-muted">Birou</p>
           <p className="mt-3 text-xl font-semibold">{company.legalName}</p>
           <p className="mt-3 leading-relaxed text-muted">
             {company.addressLines.map((line) => (

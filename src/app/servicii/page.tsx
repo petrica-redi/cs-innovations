@@ -32,7 +32,7 @@ const sections: { id: string; area: Area; title: string; screen: string; domain:
     domain: "chemistry-tools.vercel.app",
     alt: "Prima pagină Chemistry tools, cu cele șase simulatoare",
     paragraphs: [
-      "Partea de chimie a firmei pornește de la formarea lui Petrică Dulgheru. Lucrăm la proiecte de inovare în chimie și construim programe care ușurează munca de laborator.",
+      "Lucrăm la proiecte de inovare în chimie și construim programe care ușurează munca de laborator.",
       "Chemistry tools reunește șase simulatoare, de la orbitali atomici la titrare. Pentru o echipă de cercetare putem construi și evidența formulelor: ce versiune s-a folosit la fiecare lot și cine a modificat un pas al procedurii.",
     ],
   },

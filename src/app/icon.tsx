@@ -10,7 +10,7 @@ export default function Icon() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#5a3cf0",
+          background: "#0f4c81",
           color: "#ffffff",
           fontSize: 17,
           fontWeight: 600,
@@ -21,7 +21,7 @@ export default function Icon() {
           borderRadius: 3,
         }}
       >
-        Cs
+        CS
       </div>
     ),
     size,

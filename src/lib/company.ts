@@ -3,14 +3,13 @@
 export const company = {
   brand: "CS Innovations",
   legalName: "CS INNOVATIONS SOLUTIONS SRL",
-  founder: "Petrică Dulgheru",
   cui: "37754895",
   tradeRegister: "J2017000383345",
   founded: "2017",
   addressLines: [
-    "Str. Trifoiului nr. 4",
-    "sat Blejești, comuna Blejești",
-    "județul Teleorman, 147015",
+    "Spaces Unirii View",
+    "Bulevardul Corneliu Coposu nr. 6-8",
+    "București, 030167",
   ],
   email: "",
   phone: "",
@@ -43,8 +42,20 @@ export const programmes = [
 ] as const;
 
 export const steps = [
-  "Stăm întâi cu oamenii care vor lucra în aplicație și scriem împreună ce trebuie să facă prima versiune.",
-  "Arătăm devreme ecrane care funcționează, ca echipa să le încerce pe date de test și să ne spună ce lipsește.",
-  "Pornim un pilot cu o parte din echipă și corectăm ce se vede abia în lucrul de zi cu zi.",
-  "La final instruim utilizatorii și predăm codul sursă, împreună cu un manual în limba română.",
+  {
+    title: "Analiză",
+    text: "Analizăm procedura cu oamenii care vor lucra în aplicație și scriem ce trebuie să facă prima versiune.",
+  },
+  {
+    title: "Dezvoltare",
+    text: "Construim ecrane care funcționează și le dăm echipei pe date de test, ca să spună ce lipsește.",
+  },
+  {
+    title: "Pilot",
+    text: "Pornim un pilot cu o parte din echipă și corectăm ce se vede abia în lucrul de zi cu zi.",
+  },
+  {
+    title: "Predare",
+    text: "Instruim utilizatorii și predăm codul sursă, împreună cu un manual în limba română.",
+  },
 ] as const;

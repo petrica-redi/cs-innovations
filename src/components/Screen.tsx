@@ -25,7 +25,7 @@ export function Screen({ src, domain, alt, priority, sizes = "(min-width: 1024px
         <span className={`truncate font-mono text-[11px] ${dark ? "text-white/60" : "text-muted"}`}>{domain}</span>
       </div>
       <div className="relative aspect-[16/10]">
-        <Image src={src} alt={alt} fill priority={priority} sizes={sizes} className="object-cover object-top" />
+        <Image src={src} alt={alt} fill priority={priority} loading={priority ? "eager" : "lazy"} sizes={sizes} className="object-cover object-top" />
       </div>
     </figure>
   );
